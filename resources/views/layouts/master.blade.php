@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <meta name="description" content="">
       <meta name="author" content="">
-      <link rel="icon" href="images/favicon.png">
+      <link rel="icon" href={{asset('images/favicon.png')}}>
       <title>ECO HTML</title>
       <!-- CSS FILES START -->
       <link href={{asset('css/custom.css')}} rel="stylesheet">
