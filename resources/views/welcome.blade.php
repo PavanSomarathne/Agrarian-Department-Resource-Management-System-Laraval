@@ -1,9 +1,7 @@
 
 @extends('layouts.master')
-
+@include('layouts/header')   
 <div class="wrapper home2">
-        
-   @include('layouts/header')   
       <!--Slider Start-->
          <section id="home-slider" class="owl-carousel owl-theme wf100">
             <div class="item">
@@ -875,7 +873,7 @@
          <!--Footer Start-->
          <footer class="footer p-0 pt-3">
                <div class="w-100 d-flex flex-column align-items-center">
-                  <img width="200" class="mb-2" src="images/logo.png" alt=""> 
+                  <img width="150" class="mb-2" src="images/agro.png" alt=""> 
                   <div class="text-white mb-3">ADRMS Devs</div>
                </div>
          </footer>
