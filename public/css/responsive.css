@@ -21,9 +21,7 @@ a.con {
 .ser-txt span.aicon {
 	right: 10px;
 }
-ul.topnav-right {
-	display: none;
-}
+
 .slider-caption.h2slider {
 	top: 10%;
 }
@@ -87,9 +85,7 @@ ul.flinks li a {
 .services-area h6 {
 	font-size: 16px;
 }
-.navbar-nav .dropdown-toggle::after, ul.topnav-right {
-	display: none;
-}
+
 .navbar-expand-lg .navbar-nav .dropdown-menu {
 	left: inherit;
 	right: 0;
@@ -212,9 +208,7 @@ ul.ftags a {
 	float: left;
 	overflow: hidden;
 }
-ul.topnav-right {
-	display: none;
-}
+
 .wrapper .container {
 	width: 100%;
 	max-width: 100%;
@@ -865,9 +859,7 @@ section#home-slider img {
 	width: 100%;
 	height: auto;
 }
-ul.topnav-right, .topside-menu {
-	display: none;
-}
+
 .slider-caption {
 	top: 30px;
 }

@@ -179,11 +179,17 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
 	border: 0px;
 	box-shadow: none;
 }
+.image-background{
+	background: url(../images/back-1.jpg) no-repeat center center fixed;
+	background-size: cover;
+	height: 100vh;
+	overflow: hidden;
+}
 /*********************************
 Header Start
 *********************************/
-.header-style-1 {
-	position: absolute;
+.header-style-2 {
+	position: fixed;
 	left: 0;
 	width: 100%;
 	z-index: 99999;
@@ -353,6 +359,7 @@ Inner Header End
 Home Page Content Start
 *********************************/
 .wrapper .container {
+	padding-top: 50px;
 	width: 1170px;
 	max-width: 1170px;
 }
@@ -491,7 +498,7 @@ Home Page Content Start
 }
 section#home-slider img {
 	width: 100%;
-	height: auto;
+	height: 100vh;
 }
 #home-slider.owl-theme .owl-nav {
 	position: absolute;
@@ -1472,14 +1479,13 @@ Home Page 2 Start
 	font-family: 'Roboto', sans-serif;
 }
 header.header-style-2 {
-	background: #1b5e20;
+	background: #006400;
 }
 header.header-style-2 .navbar {
 	padding: 0px;
 	margin: 0px;
 }
 header.header-style-2 .navbar-brand {
-	background: #33691e;
 	width: 270px;
 	text-align: center;
 	padding: 13px 0;
@@ -1587,7 +1593,7 @@ a.cart-icon:hover, a.search-icon:hover {
 /***************  Service Area  *****************/
 
 .services-area {
-	margin-top: -105px;
+	margin-top: -200px;
 	position: relative;
 	z-index: 99;
 }
