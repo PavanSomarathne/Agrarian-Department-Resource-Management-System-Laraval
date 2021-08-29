@@ -1,12 +1,11 @@
-@extends('layouts.app')
-
-@section('content')
+@extends('layouts.master')
+@include('layouts/header')   
+<section class=" p100 image-background" >
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
-
+            <div class="login-box">
+                <h3>{{ __('Verify Your Email Address') }}</h3>
                 <div class="card-body">
                     @if (session('resent'))
                         <div class="alert alert-success" role="alert">
@@ -25,4 +24,4 @@
         </div>
     </div>
 </div>
-@endsection
+</section>

@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Foundation\Auth\RegistersFarmers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
-class RegisterController extends Controller
+class RegisterFarmerController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegistersFarmers;
 
     /**
      * Where to redirect users after registration.
@@ -50,13 +50,21 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-       
+        Log::info(print_r($data, true));
+
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'nic' => ['required', 'string', 'max:13'],
             'agreement' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'dob' => ['required', 'date','not_in:,'],
+            'division' => [ 'not_in:null,'],
+            'address' => ['required', 'string', 'max:255'],
+            'phone' => [ 'required', 'string', 'max:10', 'min:10'],
+            'land_type' => ['not_in:null,'],
+            'farmer_type' => ['not_in:null,'],
+            'acres' => ['required', 'numeric', 'gt:0'],
         ]);
     }
 
@@ -72,7 +80,13 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'nic' => $data['nic'],
             'email' => $data['email'],
+            'dob' => $data['dob'],
+            'address' => $data['address'],
             'phone' => $data['phone'],
+            'division' => $data['division'],
+            'land_type' => $data['land_type'],
+            'farmer_type' => $data['farmer_type'],
+            'acres' => $data['acres'],
             'type' => $data['type'],
             'password' => Hash::make($data['password']),
         ]);
