@@ -19,7 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('nic')->nullable();
             $table->string('phone')->nullable();
-            $table->string('gender')->nullable();
+            $table->string('dob')->nullable();
+            $table->string('address')->nullable();
+            $table->string('acres')->nullable();
+            $table->string('division')->nullable();
+            $table->string('grama_division')->nullable();
+            $table->string('land_type')->nullable();
+            $table->string('farmer_type')->nullable();
             $table->string('type')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

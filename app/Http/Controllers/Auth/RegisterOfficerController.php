@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Foundation\Auth\RegistersOfficers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
-class RegisterController extends Controller
+
+class RegisterOfficerController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -23,7 +24,7 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegistersOfficers;
 
     /**
      * Where to redirect users after registration.
@@ -50,13 +51,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-       
+        
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'nic' => ['required', 'string', 'max:13'],
             'agreement' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'division' => [ 'not_in:null,'],
+            'grama_division' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -70,9 +71,8 @@ class RegisterController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'nic' => $data['nic'],
             'email' => $data['email'],
-            'phone' => $data['phone'],
+            'division' => $data['division'],
             'type' => $data['type'],
             'password' => Hash::make($data['password']),
         ]);

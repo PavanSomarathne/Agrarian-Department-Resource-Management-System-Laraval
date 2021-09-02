@@ -71,7 +71,7 @@
                   </li>
                   <!--box  end--> 
                   <!--box  start-->
-                  <li class="active">
+                  <li>
                      <div class="sinfo">
                         <img src="images/sericon4.png" alt="">
                         <h6>Solar Panels</h6>
