@@ -24,6 +24,11 @@
                         <h4 style="color: green;">User added successfully!</h4>
                      
                 @endisset
+                @isset($error)
+            
+                        <h4 style="color: red;">User registration failed!</h4>
+                     
+                @endisset
                     <h3>Register Your Account</h3>
                     <form id="register-form" method="POST" action="{{ route('register_officer') }}">
                         @csrf

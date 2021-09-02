@@ -5,11 +5,16 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersOfficers;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Log;
-
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\MailController;
+use Illuminate\Support\Str;
 
 class RegisterOfficerController extends Controller
 {
@@ -24,7 +29,7 @@ class RegisterOfficerController extends Controller
     |
     */
 
-    use RegistersOfficers;
+    use RegistersUsers;
 
     /**
      * Where to redirect users after registration.
@@ -41,6 +46,16 @@ class RegisterOfficerController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function showRegistrationForm()
+    {
+        return view('auth.register_officer');
     }
 
     /**
@@ -62,6 +77,49 @@ class RegisterOfficerController extends Controller
     }
 
     /**
+     * Handle a registration request for the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
+     */
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $pass_var=Str::random(8);
+        $request->request->add(['password' => $pass_var]);
+        // Log::info(print_r($request, true));
+        $mail=new MailController;
+       if( $mail->sendOfficerPassword(['name' => $request['name'],'email' => $request['email'],'password' => $pass_var])){
+            event(new Registered($user = $this->create($request->all())));
+       }else{
+        return redirect()->route('register_officer',["error"=>"failed"]);
+       }
+        // $this->guard()->login($user);
+        
+    
+
+            if ($response = $this->registered($request, $user)) {
+                return redirect()->route('register_officer',["register"=>"success"]);
+            }
+    
+            return $request->wantsJson()
+                        ? new JsonResponse([], 201)
+                        : redirect()->route('register_officer',["register"=>"success"]);
+     
+    }
+
+    /**
+     * Get the guard to be used during registration.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard();
+    }
+
+    /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
@@ -76,5 +134,17 @@ class RegisterOfficerController extends Controller
             'type' => $data['type'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        //
     }
 }
