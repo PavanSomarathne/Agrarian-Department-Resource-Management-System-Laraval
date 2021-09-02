@@ -1,114 +1,245 @@
 @extends('layouts.master')
 @include('layouts/header')
 <!--Inner Header Start-->
-<style>
-    table.dataTable.table-striped.DTFC_Cloned tbody tr:nth-of-type(odd) {
-    background-color: #F3F3F3;
-}
-table.dataTable.table-striped.DTFC_Cloned tbody tr:nth-of-type(even) {
-    background-color: white;
-}
-    </style>
-     @section('content')
-<section class=" p100 ">
 
-    <div class="container d-flex justify-content-center align-items-center" style="height: 100%;">
-        <!-- <div class="col-lg-4">
-                     <div class="login-box">
-                        <h3>Login Account</h3>
-                        <form id="login-form" method="POST" action="{{ route('login') }}">
-                        @csrf   
-                        <div class="input-group">
-                              <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Username/Email" name="email" value="{{ old('email') }}" required>
-                              @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                              @enderror
-                           </div>
-                           <div class="input-group">
-                              <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" required>
-                              @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                              @enderror
-                           </div>
-                              
-                             
-                           <div class="input-group form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck2" {{ old('remember') ? 'checked' : '' }}>
-                              <label class="form-check-label" for="exampleCheck2">Remember Me</label>
-                              @if (Route::has('password.request'))
-                                 <a href="{{ route('password.request') }}" class="fp">Forgot Password</a> 
-                              @endif
-                           </div>
-                           <div class="input-group ">
-                              <button class="login-btn btn" type="submit" onclick="event.preventDefault();
-                                                     document.getElementById('login-form').submit();">Login Account</button>
-                           </div>
-                        </form>
-                     </div>
-                  </div> -->
-        <!-- <table id="example" class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>Column 1</th>
-                    <th>Column 2</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Row 1 Data 1</td>
-                    <td>Row 1 Data 2</td>
-                </tr>
-                <tr>
-                    <td>Row 2 Data 1</td>
-                    <td>Row 2 Data 2</td>
-                </tr>
-            </tbody>
-        </table> -->
-       
-        <table class="table table-bordered" id="users-table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Created At</th>
-                <th>Updated At</th>
-            </tr>
-        </thead>
-    </table>
-  
+@section('content')
+<div class="container d-flex justify-content-center align-items-center" style="height: 100%;">
+
+    <div class="modal fade" id="suppliereditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title mx-auto " id="exampleModalLabel" style="font-weight:400">
+                        Update Farmer Details</h5>
+                    <button type="button" class="close position-absolute right-0" data-dismiss="modal" aria-label="Close" style="right: 20px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    {{-- <form id="editFormID"> --}}
+                    <form id="editFormID" method="POST" action="/UpdateFarmer" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        {{method_field('PUT')}}
+
+                        {{-- <input type="text" name="supID" id="supID" value="4" > --}}
+
+                        <div class="form-group row">
+                            <label for="fid" class="col-md-4 col-form-label text-md-right">{{ __('Farmer ID') }}</label>
+                            <div class="col-md-7">
+                                <input type="text" id="fid" class="form-control" name="fid" value="{{ old('fid') }}" required autocomplete="fid" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="fName" class="col-md-4 col-form-label text-md-right">{{ __('Farmer Name') }}</label>
+                            <div class="col-md-7">
+                                <input type="text" id="fName" class="form-control" name="fName" value="{{ old('fName') }}" required autocomplete="fName" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="idNo" class="col-md-4 col-form-label text-md-right">{{ __('ID Number') }}</label>
+                            <div class="col-md-7">
+                                <input type="idNo" id="idNo" class="form-control" name="idNo" value="{{ old('idNo') }}" required autocomplete="idNo" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Age') }}</label>
+                            <div class="col-md-7">
+                                <input type="age" id="age" class="form-control" name="age" value="{{ old('age') }}" required autocomplete="age" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="telNo" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                            <div class="col-md-7">
+                                <input type="telNo" id="telNo" class="form-control" name="telNo" value="{{ old('telNo') }}" required autocomplete="telNo" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                            <div class="col-md-7">
+                                <input type="address" id="address" class="form-control" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
+                            <div class="col-md-7">
+                                <input type="email" id="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="acres" class="col-md-4 col-form-label text-md-right">{{ __('Acres') }}</label>
+                            <div class="col-md-7">
+                                <input type="acres" id="acres" class="form-control" name="acres" value="{{ old('acres') }}" required autocomplete="acres" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="typeOfTheLand" class="col-md-4 col-form-label text-md-right">{{ __('Postal Code') }}</label>
+                            <div class="col-md-7">
+                                <input type="typeOfTheLand" id="typeOfTheLand" class="form-control" name="typeOfTheLand" value="{{ old('typeOfTheLand') }}" required autocomplete="typeOfTheLand" autofocus>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <div class="btn-group">
+                                {{-- <button type="submit" class="btn btn-primary submit" style="font-weight: 650">UPDATE</button>  --}}
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary submit">Submit</button>
+                            </div>
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
     </div>
 
-</section>
-@endsection
-   
+    <div class="col-sm-12">
+        <!-- Data table start here -->
+        <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
+            <thead>
+                <tr>
+                    {{-- <h2 style="color: rgb(155, 104, 9);font-size: 38px;">{{$item->pName}}</span></h2> --}}
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>ID</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Farmers Name;</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Id Number</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Age</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Phone Number</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Address</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Email</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Acres</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Type Of The Land</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Action</b></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach ($data as $item)
+                {{-- @if($item->isActive =='1') --}}
+
+                <tr>
+                    <td>{{$item->id}}</td>
+                    <td>{{$item->name}}</td>
+                    <td>{{$item->email }}</td>
+                    <td>{{$item->nic}}</td>
+                    <td>{{$item->phone}}</td>
+                    <td>{{$item->dob}}</td>
+                    <td>{{$item->address}}</td>
+                    <td>{{$item->acres}}</td>
+                    <td>{{$item->land_type}}</td>
+                    <!--Button for edit form  -->
+                    <td style="text-align:center">
+                        <div class="btn-group">
+                            <form action="" method="get">
+                                @csrf
+                                <button type="button" class="btn btn-success edit_btn">
+                                    <i class="fa fa-edit"></I>
+                                </button>
+                            </form>
+
+                            <!-- Button for Delete form -->
+                            <form action="{{url('deletFarmer').$item->id}}" method="get">
+                                @csrf
+                                <button type="submit" class="btn btn-danger ">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                            <div>
+                    </td>
+                </tr>
+
+                {{-- @endif   --}}
+                @endforeach
+            </tbody>
+        </table>
 
 
-@push('scripts')
-<script>
-$(function() {
-    $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }   
-        });
-    $('#users-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: '{!! route('datatables.data') !!}',
-        columns: [
-            { data: 'id', name: 'id' },
-            { data: 'name', name: 'name' },
-            { data: 'email', name: 'email' },
-            { data: 'created_at', name: 'created_at' },
-            { data: 'updated_at', name: 'updated_at' }
-        ]
-    });
-});
-</script>
-@endpush
+        <script>
+            $(document).ready(function() {
+                $("body").on("click", ".edit_btn", function(event) {
+                    $('#suppliereditModal').modal('show')
 
+                    $tr = $(this).closest('tr');
+                    var data = $tr.children("td").map(function() {
+                        return $(this).text();
+                    }).get();
+
+                    console.log(data);
+
+                    // alert(data);
+                    $('#fid').val(data[0]);
+                    $('#fName').val(data[1]);
+                    $('#idNo').val(data[2]);
+                    $('#age').val(data[3]);
+                    $('#telNo').val(data[4]);
+                    $('#address').val(data[5]);
+                    $('#email').val(data[6]);
+                    $('#acres').val(data[7]);
+                    $('#typeOfTheLand').val(data[8]);
+
+                });
+                $("#example1").DataTable({
+                    responsive: true,
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copy',
+                        {
+                            extend: 'csv',
+                            text: 'csv',
+                            extension: '.csv',
+                            exportOptions: {
+                                modifier: {
+                                    page: 'current'
+                                }
+                            },
+                            title: 'table'
+                        },
+                        'pdf',
+                        'print',
+                        {
+                            extend: 'excel',
+                            text: 'excel',
+                            extension: '.xlsx',
+                            exportOptions: {
+                                modifier: {
+                                    page: 'current'
+                                }
+                            },
+                            title: 'table'
+                        }, 'colvis'
+                    ]
+
+                });
+
+                // $('#editFormID').on('submit', function (e) {
+                //     e.preventDefault();
+
+                //     var id = $('#id').val();
+
+                //     $.ajax({
+                //         type: "PUT",
+                //         url: "/UpdateSupplier/" + id,
+                //         data: $('#editFormID').serialize(),
+                //         success: function (response) {
+                //             console.log(response);
+                //             $('#suppliereditModal').modal('hide');
+                //             alert("Data Updated");
+                //         },
+                //         error: function (error) {
+                //             console.log(error);
+                //         }
+                //     })
+                //     $('#exampleModal').modal('hide');
+                //     window.location.reload();
+                // })
+            });
+        </script>
+    </div>
+</div>
+@endSection

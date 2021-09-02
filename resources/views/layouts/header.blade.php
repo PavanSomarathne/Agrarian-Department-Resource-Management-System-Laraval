@@ -100,7 +100,7 @@
           <ul class="topnav-right">
              @guest
              @if (Route::has('login') || Route::has('register'))
-             <li class="login-reg"> <a href="{{ route('login') }}">Login</a> | <a href="{{ route('register_farmer') }}">Signup</a> </li>
+             <li class="login-reg"> <a href="{{ route('login') }}">Login</a> | <a href="{{ route('register') }}">Signup</a> | <a href="{{ route('register_farmer') }}">Signup - Farmer</a> </li>
              @endif
              @else
              <li class="dropdown">
