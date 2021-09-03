@@ -72,6 +72,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+Route::get('/subsidies', 'SubsidiesController@index');
+
 Route::get('datatables/data', 'DatatablesController@anyData')->name('datatables.data');
 
 Route::get('farmerss', 'DatatablesController@index');
