@@ -13,15 +13,15 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
       <!-- CSS FILES START -->
-      <link href={{asset('css/custom.css')}} rel="stylesheet">
-      <link href={{asset('css/color.css')}} rel="stylesheet">
-      <link href={{asset('css/responsive.css')}} rel="stylesheet">
-      <link href={{asset('css/owl.carousel.min.css')}} rel="stylesheet">
-      <link href={{asset('css/bootstrap.min.css')}} rel="stylesheet">
-      <link href={{asset('css/prettyPhoto.css')}} rel="stylesheet">
-      <link href={{asset('css/all.min.css')}} rel="stylesheet">
-      <link href={{asset('css/font_awesome_all.css')}} rel="stylesheet">
-      <link rel="stylesheet" href="assets/css/adminlte.min.css"> 
+      <link href="{{ asset('assets/css1/custom.css') }}" rel="stylesheet">
+      <link href="{{ asset('assets/css1/color.css') }}" rel="stylesheet">
+      <link href="{{ asset('assets/css1/responsive.css') }}" rel="stylesheet">
+      <link href="{{ asset('assets/css1/owl.carousel.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('assets/css1/bootstrap.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('assets/css1/prettyPhoto.css') }}" rel="stylesheet">
+      <link href="{{ asset('assets/css1/all.min.css') }}" rel="stylesheet">
+      <link href="{{ asset('assets/css1/font_awesome_all.css') }}" rel="stylesheet">
+      <!-- <link rel="stylesheet" href="assets/css/adminlte.min.css">  -->
      <!-- DataTables -->
     <link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -30,16 +30,17 @@
       <!-- CSS FILES End -->
    </head>
    <!-- @extends('layouts.app') -->
-   <body>    
-      <script src={{asset('js/jquery-3.3.1.min.js')}}></script> 
-      <script src={{asset('js/jquery-migrate-1.4.1.min.js')}}></script> 
-      <script src={{asset('js/popper.min.js')}}></script> 
-      <script src={{asset('js/bootstrap.min.js')}}></script> 
-      <script src={{asset('js/owl.carousel.min.js')}}></script> 
-      <script src={{asset('js/jquery.prettyPhoto.js')}}></script> 
-      <script src={{asset('js/isotope.min.js')}}></script> 
-      <script src={{asset('js/custom.js')}}></script>
-      <script src={{asset('js/font_awesome_all.js')}}></script>
+   <body>   
+   
+      <script src="{{ asset('js/jquery-3.3.1.min.js') }} "></script> 
+      <script src="/js/jquery-migrate-1.4.1.min.js"></script> 
+      <script src="/js/popper.min.js"></script> 
+      <script src="{{ asset('js/bootstrap.min.js') }} "></script> 
+      <script src="{{ asset('js/owl.carousel.min.js') }} "></script> 
+      <script src="/js/jquery.prettyPhoto.js"></script> 
+      <script src="/js/isotope.min.js"></script> 
+      <script src="{{ asset('js/custom.js') }} "></script>
+      <script src="/js/font_awesome_all.js"></script>
       <!-- DataTables  & Plugins -->
       <script src="assets/plugins/jquery/jquery.min.js"></script>
       <script src="assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
@@ -52,8 +53,9 @@
       <script src="assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
       <script src="assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
       <script src="assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<content>
-      @yield('content')
+     
+      <content>
+            @yield('content')
       </content>
 
       </body>

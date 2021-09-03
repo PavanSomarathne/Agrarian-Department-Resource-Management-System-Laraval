@@ -2,15 +2,14 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-
-class Harvest_Product extends Authenticatable
+use Illuminate\Database\Eloquent\Model;
+class Harvest_Product extends Model
 {
-    use HasFactory, Notifiable;
-
+    use HasFactory;
+    public $timestamps = false;
+    
+    public $table = 'harvest_products';
     /**
      * The attributes that are mass assignable.
      *
@@ -23,6 +22,7 @@ class Harvest_Product extends Authenticatable
         'harvest_price',
         'harvest_selling_type',
         'harvest_image',
+        'harvest_description',
     ];
 
 }

@@ -33,6 +33,12 @@ Route::post('register_farmer', 'Auth\RegisterFarmerController@register')->name('
 Route::get('farmers', 'FarmerController@index')->name('farmer.viewall');
 // Route::post('register_farmer', 'RegisterFarmerController@register')->name('register_farmer');
 
+//Harvest Routes...
+Route::get('harvest', 'HarvestController@index')->name('harvest');
+Route::get('harvest_shop', 'HarvestController@shop')->name('harvest.shop');
+Route::get('harvest_shop/{id}', 'HarvestController@product')->name('harvest.product');
+Route::post('harvest', 'HarvestController@store')->name('harvest.add');
+
 // Registration officer Routes...
 Route::get('register_officer', 'Auth\RegisterOfficerController@showRegistrationForm')->name('register_officer');
 Route::post('register_officer', 'Auth\RegisterOfficerController@register')->name('register_officer');

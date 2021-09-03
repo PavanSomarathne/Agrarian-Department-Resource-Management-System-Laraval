@@ -180,7 +180,7 @@ body h1, body h2, body h3, body h4, body h5, body h6 {
 	box-shadow: none;
 }
 .image-background{
-	background: url(../images/back-1.jpg) no-repeat center center fixed;
+	background: url(/images/back-1.jpg) no-repeat center center fixed;
 	background-size: cover;
 	height: 100vh;
 	overflow: hidden;
@@ -320,7 +320,7 @@ Inner Header Start
 *********************************/
 
 .inner-header {
-	background: url(../images/innerheader.jpg) no-repeat;
+	background: url(/images/innerheader.jpg) no-repeat;
 }
 .inner-header h1 {
 	color: #fff;
@@ -552,7 +552,7 @@ section#home-slider img {
 	font-family: 'droidSans';
 }
 .home-about {
-	background: url(../images/aboutbg.jpg) no-repeat #fff;
+	background: url(/images/aboutbg.jpg) no-repeat #fff;
 }
 .about-pic {
 	position: relative;
@@ -805,6 +805,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8bc34a', end
 }
 .pro-thumb, .blog-thumb {
 	position: relative;
+	min-height: 250px;
 	overflow: hidden;
 }
 .blog-small-post .post-thumb:after, .event-thumb:after, .blog-thumb:after {
