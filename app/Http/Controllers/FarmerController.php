@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FarmerController extends Controller
@@ -13,6 +14,7 @@ class FarmerController extends Controller
 
     public function index()
     {
-        return view('view_farmers');
+        $data = User::where('type','=','Farmer')->get();
+        return view('view_farmers')->with('data',$data);
     }
 }

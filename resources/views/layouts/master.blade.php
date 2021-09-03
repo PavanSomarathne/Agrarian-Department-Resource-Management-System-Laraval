@@ -21,14 +21,16 @@
       <link href={{asset('css/prettyPhoto.css')}} rel="stylesheet">
       <link href={{asset('css/all.min.css')}} rel="stylesheet">
       <link href={{asset('css/font_awesome_all.css')}} rel="stylesheet">
-      <link href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="assets/css/adminlte.min.css"> 
+     <!-- DataTables -->
+    <link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
 
       <!-- CSS FILES End -->
    </head>
    <!-- @extends('layouts.app') -->
-      <content>
-      @yield('content')
-      </content>
+   <body>    
       <script src={{asset('js/jquery-3.3.1.min.js')}}></script> 
       <script src={{asset('js/jquery-migrate-1.4.1.min.js')}}></script> 
       <script src={{asset('js/popper.min.js')}}></script> 
@@ -38,5 +40,23 @@
       <script src={{asset('js/isotope.min.js')}}></script> 
       <script src={{asset('js/custom.js')}}></script>
       <script src={{asset('js/font_awesome_all.js')}}></script>
-      <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-      <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+      <!-- DataTables  & Plugins -->
+      <script src="assets/plugins/jquery/jquery.min.js"></script>
+      <script src="assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+      <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+      <script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+      <script src="assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+      <script src="assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+      <script src="assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+      <script src="assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+      <script src="assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+      <script src="assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+      <script src="assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<content>
+      @yield('content')
+      </content>
+
+      </body>
+</html>
+
+     

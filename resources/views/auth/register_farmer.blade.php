@@ -175,7 +175,7 @@
                             </li>
                         </ul>
                         <!-- Hidden inputs -->
-                        <input type="hidden" name="type" value="User">
+                        <input type="hidden" name="type" value="Farmer">
                     </form>
                 </div>
             </div>
