@@ -10,7 +10,7 @@
       <title>Admin Panel</title>
       <!-- CSS FILES START -->
       <link href={{asset('assets/css/app.css')}} rel="stylesheet">
-        <link href={{asset('assets/css/bootstrap.min.css')}} rel="stylesheet">
+    <link href={{asset('assets/css/bootstrap.min.css')}} rel="stylesheet">
       <link href={{asset('assets/css/bootstrap-extended.css')}} rel="stylesheet">
       <link href={{asset('assets/css/bootstrap-min.css.map')}} rel="stylesheet">
       <link href={{asset('assets/css/dark-theme.css')}} rel="stylesheet">
@@ -29,6 +29,7 @@
       <script src={{asset('assets/js/pace.min.js')}}></script> 
       <script src={{asset('assets/js/widgets.js')}}></script> 
       <script src={{asset('assets/js/app.js')}}></script>
+	  <script src={{asset('assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}></script>
    
       	<!--wrapper-->
 	<div class="wrapper">
@@ -47,21 +48,19 @@
 			<!--navigation-->
 			<ul class="metismenu" id="menu">
 				<li>
-					<a href="javascript:;" class="has-arrow">
+					<a href="/dashboard" class="has-arrow">
 						<div class="parent-icon"><i class='bx bx-home'></i>
 						</div>
 						<div class="menu-title">Dashboard</div>
 					</a>
 					<ul>
-						<li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Analytics</a>
+						<li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Farmers</a>
 						</li>
-						<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>Sales</a>
+						<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>Harvest</a>
 						</li>
-						<li> <a href="index3.html"><i class="bx bx-right-arrow-alt"></i>eCommerce</a>
+						<li> <a href="/subsidies"><i class="bx bx-right-arrow-alt"></i>Subsidies</a>
 						</li>
-						<li> <a href="index4.html"><i class="bx bx-right-arrow-alt"></i>Alternate</a>
-						</li>
-						<li> <a href="index5.html"><i class="bx bx-right-arrow-alt"></i>Hospitality</a>
+						<li> <a href="/events"><i class="bx bx-right-arrow-alt"></i>Events</a>
 						</li>
 					</ul>
 				</li>

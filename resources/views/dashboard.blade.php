@@ -1,73 +1,151 @@
 @extends('layouts.admin')
 @section('content')
-			<div class="page-content">
-				<!--breadcrumb-->
-				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Tables</div>
-					<div class="ps-3">
-						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb mb-0 p-0">
-								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-								</li>
-								<li class="breadcrumb-item active" aria-current="page">Basic Table</li>
-							</ol>
-						</nav>
-					</div>
-					<div class="ms-auto">
-						<div class="btn-group">
-							<button type="button" class="btn btn-primary">Settings</button>
-							<button type="button" class="btn btn-primary split-bg-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown">	<span class="visually-hidden">Toggle Dropdown</span>
-							</button>
-							<div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-end">	<a class="dropdown-item" href="javascript:;">Action</a>
-								<a class="dropdown-item" href="javascript:;">Another action</a>
-								<a class="dropdown-item" href="javascript:;">Something else here</a>
-								<div class="dropdown-divider"></div>	<a class="dropdown-item" href="javascript:;">Separated link</a>
-							</div>
+<div class="page-content">
+	<!--breadcrumb-->
+	<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+		<div class="breadcrumb-title pe-3">Dashboard</div>
+		<div class="ps-3">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb mb-0 p-0">
+					<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+					</li>
+					<li class="breadcrumb-item active" aria-current="page">System Analytics</li>
+				</ol>
+			</nav>
+		</div>
+	</div>
+	<!--end breadcrumb-->
+	<div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
+		<div class="col">
+			<div class="card radius-10 overflow-hidden">
+				<div class="card-body">
+					<div class="d-flex align-items-center">
+						<div>
+							<p class="mb-0">Total Orders</p>
+							<h5 class="mb-0">867</h5>
+						</div>
+						<div class="ms-auto"> <i class='bx bx-cart font-30'></i>
 						</div>
 					</div>
 				</div>
-				<!--end breadcrumb-->
-				<div class="row">
-					<div class="col">
-						<h6 class="mb-0 text-uppercase">Table head</h6>
-						<hr/>
-						<div class="card">
-							<div class="card-body">
-								<table class="table mb-0">
-									<thead class="table-dark">
-										<tr>
-											<th scope="col">#</th>
-											<th scope="col">First</th>
-											<th scope="col">Last</th>
-											<th scope="col">Handle</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<th scope="row">1</th>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>@mdo</td>
-										</tr>
-										<tr>
-											<th scope="row">2</th>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											<td>@fat</td>
-										</tr>
-										<tr>
-											<th scope="row">3</th>
-											<td colspan="2">Larry the Bird</td>
-											<td>@twitter</td>
-										</tr>
-									</tbody>
-								</table>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!--end row-->
+				<div class=""></div>
 			</div>
+		</div>
+		<div class="col">
+			<div class="card radius-10 overflow-hidden">
+				<div class="card-body">
+					<div class="d-flex align-items-center">
+						<div>
+							<p class="mb-0">Number Of Divisions</p>
+							<h5 class="mb-0">12</h5>
+						</div>
+						<div class="ms-auto"> <i class='bx bx-wallet font-30'></i>
+						</div>
+					</div>
+				</div>
+				<div class=""></div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card radius-10 overflow-hidden">
+				<div class="card-body">
+					<div class="d-flex align-items-center">
+						<div>
+							<p class="mb-0">Number Of Officers</p>
+							<h5 class="mb-0">24</h5>
+						</div>
+						<div class="ms-auto"> <i class='bx bx-group font-30'></i>
+						</div>
+					</div>
+				</div>
+				<div class=""></div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="card radius-10 overflow-hidden">
+				<div class="card-body">
+					<div class="d-flex align-items-center">
+						<div>
+							<p class="mb-0">No Of Farmers</p>
+							<h5 class="mb-0">869</h5>
+						</div>
+						<div class="ms-auto"> <i class='bx bx-chat font-30'></i>
+						</div>
+					</div>
+				</div>
+				<div class=""></div>
+			</div>
+		</div>
+		<div class="col-6">
+			<h6 class="mb-4 text-uppercase">Users According to Division</h6>
+			<div class="card">
+				<div class="card-body">
+					<div id="chart_farmers"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-6">
+			<h6 class="mb-4 text-uppercase">Farmers According to Land Type</h6>
+			<div class="card">
+				<div class="card-body">
+					<div id="chart_officers"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end row-->
+</div>
+
+<script>
+
+	var options = {
+		series: [<?php foreach($farmersType as $divi) echo $divi.','; ?>],
+		chart: {
+			foreColor: '#9ba7b2',
+			height: 330,
+			type: 'pie',
+		},
+		colors: ["#8833ff",  "#17a00e",],
+		labels: [<?php foreach($farmersType as $key => $divi) echo "\"".$key."\","; ?>],
+		responsive: [{
+			breakpoint: 480,
+			options: {
+				chart: {
+					height: 360
+				},
+				legend: {
+					position: 'bottom'
+				}
+			}
+		}]
+	};
+	var chart = new ApexCharts(document.querySelector("#chart_officers"), options);
+	chart.render();
+	// alert("<?php foreach($userDivision as $key => $divi) echo '\"'.$key.'\",'; ?>");
+	var options = {
+		series: [<?php foreach($userDivision as $divi) echo $divi.','; ?>],
+		chart: {
+			foreColor: '#9ba7b2',
+			height: 330,
+			type: 'pie',
+		},
+		colors: ["#8833ff", "#6c757d", "#17a00e", "#f41127", "#ffc107"],
+		labels: [<?php foreach($userDivision as $key => $divi) echo "\"".$key."\","; ?>],
+		responsive: [{
+			breakpoint: 480,
+			options: {
+				chart: {
+					height: 360
+				},
+				legend: {
+					position: 'bottom'
+				}
+			}
+		}]
+	};
+	var chart = new ApexCharts(document.querySelector("#chart_farmers"), options);
+	chart.render();
+
+</script>
 @stop
-	
-	

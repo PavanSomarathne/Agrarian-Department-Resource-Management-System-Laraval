@@ -75,11 +75,13 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Route::get('/', function () {
 //     return view('vendor.notifications.password_send');
 // });
-Route::get('/dashboard', function () {
-    return view('dashboard');
-});
+Route::get('/dashboard', 'DashboardController@index');
 
 Route::get('/subsidies', 'SubsidiesController@index');
+Route::post('/subsidies', 'SubsidiesController@store');
+
+Route::get('/events', 'EventsController@index');
+Route::post('/events', 'EventsController@store');
 
 Route::get('datatables/data', 'DatatablesController@anyData')->name('datatables.data');
 
