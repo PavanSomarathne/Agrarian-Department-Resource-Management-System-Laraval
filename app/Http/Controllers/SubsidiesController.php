@@ -13,8 +13,13 @@ class SubsidiesController extends Controller
         return view('subsidies',['subsidies'=> $subsidies]);
     }
 
-    public function show(){
+    public function store(){
+
+        $subsidie = new Subsidie();
+        $subsidie->date = request('date');
+        $subsidie->description = request('description');
+        $subsidie->save();
         
-        return view('subsidies');
+        return redirect('/subsidies');
     }
 }

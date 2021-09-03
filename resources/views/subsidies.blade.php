@@ -3,40 +3,41 @@
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-					<div class="breadcrumb-title pe-3">Tables</div>
+					<div class="breadcrumb-title pe-3">Dashboard</div>
 					<div class="ps-3">
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb mb-0 p-0">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">Subsidies</li>
+								<li class="breadcrumb-item active" aria-current="page">Manage Subsidies</li>
 							</ol>
 						</nav>
 					</div>
 				</div>
                 <div class="col">
-						<h6 class="mb-0 text-uppercase">Basic Form</h6>
+						<h6 class="mb-0 text-uppercase">Add Subsidies</h6>
 						<hr/>
-						<div class="card border-top border-0 border-4 border-primary">
+						<div class="card border-top border-0 border-4 border-success">
 							<div class="card-body p-5">
 								<div class="card-title d-flex align-items-center">
-									<div><i class="bx bxs-bell me-1 font-22 text-primary"></i>
+									<div><i class="bx bxs-bell me-1 font-22 text-success"></i>
 									</div>
-									<h5 class="mb-0 text-primary">Add New Subsidie</h5>
+									<h5 class="mb-0 text-success">Add New Subsidie</h5>
 								</div>
 								<hr>
-								<form class="row g-3">
+								<form class="row g-3" method="POST" action="/subsidies" >
+								@csrf
 									<div class="col-md-6">
 										<label for="inputFirstName" class="form-label">Select Date</label>
-										<input type="date" class="form-control" id="inputFirstName">
+										<input type="date" class="form-control" id="date" name="date">
 									</div>
 									<div class="col-md-6">
 										<label for="inputLastName" class="form-label">Description</label>
-										<input type="password" class="form-control" id="inputLastName">
+										<input type="text" class="form-control" id="description" name="description">
 									</div>
 									
 									<div class="col-12">
-										<button type="submit" class="btn btn-primary px-5">Submit</button>
+										<button type="submit" class="btn btn-success px-5">Submit</button>
 									</div>
 								</form>
 							</div>
@@ -45,7 +46,7 @@
 				<!--end breadcrumb-->
 				<div class="row">
 					<div class="col">
-						<h6 class="mb-0 text-uppercase">Table head</h6>
+						<h6 class="mb-0 text-uppercase">View Subsidies</h6>
 						<hr/>
 						<div class="card">
 							<div class="card-body">
