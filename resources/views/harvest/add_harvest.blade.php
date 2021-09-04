@@ -69,7 +69,7 @@
 
                             <div class="col-md-6 payment-method">
                             <label class="form-label">Selling Type</label>
-                                <select class="form-control  mt-0 @error('harvest_selling_type') is-invalid @enderror" name="harvest_selling_type" value="{{ old('harvest_selling_type') }}">
+                                <select class="form-select mt-0 @error('harvest_selling_type') is-invalid @enderror" name="harvest_selling_type" value="{{ old('harvest_selling_type') }}">
                                     <option value="{{ old('harvest_selling_type') ? old('harvest_selling_type') : 'null' }}">{{ old('harvest_selling_type')&&old('harvest_selling_type')!='null' ? old('harvest_selling_type') : 'Selling Type' }}</option>
                                     <option value="Wholesale">Wholesale</option>
                                     <option value="Retail">Retail</option>
