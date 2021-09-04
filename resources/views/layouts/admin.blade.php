@@ -20,7 +20,7 @@
       <link href={{asset('assets/css/semi-dark.css')}} rel="stylesheet">
 	  
 	  <!-- DataTables added by Pavan -->
-	  <link href="{{ asset('assets/css1/bootstrap.min.css') }}" rel="stylesheet">
+	 
 
 	  <link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
       <link rel="stylesheet" href="assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -81,7 +81,7 @@
 						</li>
 						<li> <a href="{{ route('officer.viewall') }}"><i class="bx bx-right-arrow-alt"></i>Views Officers</a>
 						</li>
-						<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>Add Harvest</a>
+						<li> <a href="{{ route('harvest.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Harvest</a>
 						</li>
 						<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>View Harvest</a>
 						</li>

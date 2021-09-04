@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+<link href="{{ asset('assets/css1/bootstrap.min.css') }}" rel="stylesheet">
 			<div class="page-content">
 				<!--breadcrumb-->
 				<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
