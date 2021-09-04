@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Harvest_Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
@@ -92,9 +93,9 @@ class HarvestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function confirm()
     {
-        //
+        return view('harvest.confirm');
     }
 
     /**
@@ -103,9 +104,19 @@ class HarvestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function buy(Request $request)
     {
-        //
+        $total=$request['quantity']*$request['harvest_price'];
+        $request->request->add([
+            'userName' => Auth::user()->name,
+            'userEmail' => Auth::user()->email,
+            'userPhone' => Auth::user()->phone,
+            'userAddress' => Auth::user()->address,
+            'total' => $total,
+
+        ]);
+  
+        return view('harvest.checkout')->with('data',$request);
     }
 
     /**

@@ -170,7 +170,7 @@
                                 </div>
                             </li>
                             <li class="col-md-12">
-                                <button type="submit" class="register" onclick="event.preventDefault();
+                                <button type="submit" class="register mx-auto" onclick="event.preventDefault();
                                                      document.getElementById('register-form').submit();">Register Your Account</button>
                             </li>
                         </ul>

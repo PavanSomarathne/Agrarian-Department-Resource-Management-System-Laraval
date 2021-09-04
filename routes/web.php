@@ -47,6 +47,8 @@ Route::get('harvest_shop/{id}', 'HarvestController@product')->name('harvest.prod
 Route::post('harvest', 'HarvestController@store')->name('harvest.add');
 Route::put('harvest_update', 'HarvestController@update')->name('harvest.update');
 Route::post('harvest_delete', 'HarvestController@delete')->name('harvest.delete');
+Route::post('harvest_buy', 'HarvestController@buy')->name('harvest.buy')->middleware('auth');
+Route::get('harvest_confirm', 'HarvestController@confirm')->name('harvest.confirm')->middleware('auth');
 
 // Registration officer Routes...
 Route::get('register_officer', 'Auth\RegisterOfficerController@showRegistrationForm')->name('register_officer');
