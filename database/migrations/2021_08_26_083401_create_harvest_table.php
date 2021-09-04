@@ -13,13 +13,14 @@ class CreateHarvestTable extends Migration
      */
     public function up()
     {
-        Schema::create('harvest_product', function (Blueprint $table) {
+        Schema::create('harvest_products', function (Blueprint $table) {
             $table->id();
             $table->string('harvest_name');
             $table->string('harvest_quantity');
             $table->string('harvest_phone');
             $table->string('harvest_price');
             $table->string('harvest_selling_type');
+            $table->string('harvest_description');
             $table->string('harvest_image');
         });
     }
@@ -31,6 +32,6 @@ class CreateHarvestTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('harvest');
+        Schema::dropIfExists('harvest_products');
     }
 }

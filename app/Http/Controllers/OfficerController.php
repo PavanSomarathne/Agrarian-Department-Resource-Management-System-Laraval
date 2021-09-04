@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class FarmerController extends Controller
+class OfficerController extends Controller
 {
     public function __construct()
     {
@@ -14,8 +14,8 @@ class FarmerController extends Controller
 
     public function index()
     {
-        $data = User::where('type','=','Farmer')->get();
-        return view('viewFarmers')->with('data',$data);
+        $data = User::where('type','=','Officer')->get();
+        return view('viewOfficers')->with('data',$data);
     }
     public function update(Request $request)
     {

@@ -10,7 +10,7 @@
       <title>Admin Panel</title>
       <!-- CSS FILES START -->
       <link href={{asset('assets/css/app.css')}} rel="stylesheet">
-    <link href={{asset('assets/css/bootstrap.min.css')}} rel="stylesheet">
+      <link href={{asset('assets/css/bootstrap.min.css')}} rel="stylesheet">
       <link href={{asset('assets/css/bootstrap-extended.css')}} rel="stylesheet">
       <link href={{asset('assets/css/bootstrap-min.css.map')}} rel="stylesheet">
       <link href={{asset('assets/css/dark-theme.css')}} rel="stylesheet">
@@ -21,12 +21,19 @@
 	  <link href={{asset('assets/plugins/fullcalendar/css/main.min.css')}} rel="stylesheet">
 
       <!-- CSS FILES End -->
+	  
+	  <!-- DataTables added by Pavan -->
+	  <link href="{{ asset('assets/css1/bootstrap.min.css') }}" rel="stylesheet">
+
+	  <link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+      <link rel="stylesheet" href="assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+      <link rel="stylesheet" href="assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+   
    </head>
 
-   <script src="js/jquery-3.3.1.min.js"></script> 
       <script src={{asset('assets/js/jquery.min.js')}}></script> 
       <script src={{asset('assets/js/index.js')}}></script> 
-      <script src={{asset('assets/js/bootstrap.bundle.min.js')}}></script> 
+      <script src={{asset('assets/js/bootstrap.bundle.min.js')}}></script>  <!-- Pavan has commented codes inside -->
       <script src={{asset('assets/js/bootstrap.bundle.min.js.map')}}></script> 
       <script src={{asset('assets/js/pace.min.js')}}></script> 
       <script src={{asset('assets/js/widgets.js')}}></script> 
@@ -34,19 +41,33 @@
 	  <script src={{asset('assets/plugins/fullcalendar/js/main.min.js')}}></script>
 	  <script src={{asset('assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}></script>
 	  
+	  <script src="/js/font_awesome_all.js"></script> <!--added by Pavan -->
+
+	  <!-- DataTables  & Plugins added by Pavan -->
+      <script src="assets/plugins/jquery/jquery.min.js"></script>
+      <script src="assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
+      <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
+      <script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+      <script src="assets/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+      <script src="assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+      <script src="assets/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+      <script src="assets/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+      <script src="assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+      <script src="assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+      <script src="assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+   
       	<!--wrapper-->
 	<div class="wrapper">
 		<!--sidebar wrapper -->
 		<div class="sidebar-wrapper" data-simplebar="true">
 			<div class="sidebar-header">
-				<div>
-					<img src="assets/images/agro.png" class="logo-icon" alt="logo icon">
+				
+				<div class="mx-auto" >
+				<img  src="assets/images/agro.png" class="logo-icon" alt="logo icon">
 				</div>
-				<div>
-					<h4 class="logo-text">ARDMS</h4>
-				</div>
-				<div class="toggle-icon ms-auto"><i class='bx bx-first-page'></i>
-				</div>
+				<!-- <div class="toggle-icon ms-auto">
+					<i class='bx bx-first-page'></i>
+				</div> -->
 			</div>
 			<!--navigation-->
 			<ul class="metismenu" id="menu">
@@ -57,9 +78,17 @@
 						<div class="menu-title">Dashboard</div>
 					</a>
 					<ul>
-						<li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Farmers</a>
+						<li> <a href="{{ route('register_farmer') }}"><i class="bx bx-right-arrow-alt"></i>Add Farmer</a>
 						</li>
-						<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>Harvest</a>
+						<li> <a href="{{ route('farmer.viewall') }}"><i class="bx bx-right-arrow-alt"></i>View Farmers</a>
+						</li>
+						<li> <a href="{{ route('register_officer') }}"><i class="bx bx-right-arrow-alt"></i>Add Officer</a>
+						</li>
+						<li> <a href="{{ route('officer.viewall') }}"><i class="bx bx-right-arrow-alt"></i>Views Officers</a>
+						</li>
+						<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>Add Harvest</a>
+						</li>
+						<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>View Harvest</a>
 						</li>
 						<li> <a href="/subsidies"><i class="bx bx-right-arrow-alt"></i>Subsidies</a>
 						</li>
