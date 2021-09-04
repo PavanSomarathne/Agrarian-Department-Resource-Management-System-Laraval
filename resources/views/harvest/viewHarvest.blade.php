@@ -11,7 +11,7 @@
 							<ol class="breadcrumb mb-0 p-0" style="background-color: #ffffff;">
 								<li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
 								</li>
-								<li class="breadcrumb-item active" aria-current="page">View Farmers</li>
+								<li class="breadcrumb-item active" aria-current="page">View Product</li>
 							</ol>
 						</nav>
 					</div>
@@ -41,7 +41,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title mx-auto " id="exampleModalLabel" style="font-weight:400">
-                        Update Farmer Details</h5>
+                        Update Harvest Details</h5>
                     <button type="button" class="close position-absolute right-0" data-dismiss="modal" aria-label="Close" style="right: 20px;">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -49,63 +49,56 @@
 
                 <div class="modal-body">
                     {{-- <form id="editFormID"> --}}
-                    <form id="editFormID" method="POST" action="{{ route('update_officer') }}" enctype="multipart/form-data">
+                    <form id="editFormID" method="POST" action="{{ route('harvest.update') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{method_field('PUT')}}
 
-                         <input type="hidden" name="oid" id="oid" value="" > 
+                         <input type="hidden" name="hid" id="hid" value="" > 
 
                         
                         <div class="form-group row">
-                            <label for="fName" class="col-md-4 col-form-label text-md-right">{{ __('Officer Name') }}</label>
+                            <label for="fName" class="col-md-4 col-form-label text-md-right">{{ __('Product Name') }}</label>
                             <div class="col-md-7">
-                                <input type="text" id="name" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input type="text" id="harvest_name" class="form-control" name="harvest_name" value="{{ old('harvest_name') }}" required autocomplete="harvest_name" autofocus>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="idNo" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
+                            <label for="idNo" class="col-md-4 col-form-label text-md-right">{{ __('Product Quantity') }}</label>
                             <div class="col-md-7">
-                                <input type="email" id="email" class="form-control" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input type="number" id="harvest_quantity" class="form-control" name="harvest_quantity" value="{{ old('harvest_quantity') }}" required autocomplete="harvest_quantity" autofocus>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Nic No') }}</label>
+                            <label for="age" class="col-md-4 col-form-label text-md-right">{{ __('Seller Phone No') }}</label>
                             <div class="col-md-7">
-                                <input type="text" id="nic" class="form-control" name="nic" value="{{ old('nic') }}" required autocomplete="nic" autofocus>
+                                <input type="text" id="harvest_phone" class="form-control" name="harvest_phone" value="{{ old('harvest_phone') }}" required autocomplete="harvest_phone" autofocus>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="telNo" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                            <label for="telNo" class="col-md-4 col-form-label text-md-right">{{ __('Product Price Rs.') }}</label>
                             <div class="col-md-7">
-                                <input type="text" id="phone" class="form-control" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+                                <input type="number" id="harvest_price" class="form-control" name="harvest_price" value="{{ old('harvest_price') }}" required autocomplete="harvest_price" autofocus>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Division') }}</label>
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Selling Type') }}</label>
                             <div class="col-md-7">
-                                <select id="division" class="form-select" name="division" value="{{ old('division') }}" required autocomplete="division" autofocus>
-                                <option value="Gokarella North">Gokarella North</option>
-                                    <option value="Gokarella West">Gokarella West</option>
-                                    <option value="Gokarella South">Gokarella South</option>
-                                    <option value="Gokarella East">Gokarella East</option>    
-                            </select>
+                                <select  id="harvest_selling_type" class="form-select" name="harvest_selling_type" value="{{ old('harvest_selling_type') }}" required autocomplete="harvest_selling_type" autofocus>
+                                <option value="Wholesale">Wholesale</option>
+                                <option value="Retail">Retail</option>
+                                </select>
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="typeOfTheLand" class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
+                            <label for="typeOfTheLand" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
                             <div class="col-md-7">
-                                <input type="date" id="dob" class="form-control" name="dob" value="{{ old('dob') }}" required autocomplete="dob" autofocus>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="typeOfTheLand" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
-                            <div class="col-md-7">
-                                <input type="text" id="address" class="form-control" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                                <textarea type="text" id="harvest_description" class="form-control" name="harvest_description" value="{{ old('harvest_description') }}" required autocomplete="harvest_description" autofocus>
+                                </textarea>
                             </div>
                         </div>
 
@@ -131,14 +124,12 @@
                     <th style="width: 50px;"><b>Action</b></th>
                     <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>ID</b></th>
                     <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Image</b></th>
-                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Officer Name;</b></th>
-                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Email</b></th>
-                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>NIC Number</b></th>
-                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Phone Number</b></th>
-                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Division</b></th>
-                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Date of Birth</b></th>
-                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Address</b></th>
-                    
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Product Name</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Product Quantity</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Selller Number</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Product Price</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Selling Type</b></th>
+                    <th style="color:rgb(34, 24, 119); font-size: 13px;"><b>Description</b></th>
                 </tr>
             </thead>
 
@@ -158,7 +149,7 @@
                             </form>
 
                             <!-- Button for Delete form -->
-                            <form action="{{ route('delete_officer')}}" method="post">
+                            <form action="{{ route('harvest.delete')}}" method="post">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$item->id}}"/>
                                 <button class="btn p-2"  type="submit">
@@ -168,21 +159,19 @@
                             <div>
                     </td>
                     <td>{{$item->id}}</td>
-                    <td><div class="d-flex justify-content-center align-items-center" style="width: 90px;height: 90px;">
+                    <td>
+                    <div class="d-flex justify-content-center align-items-center" style="width: 100px;height: 100px;">
                         <div class="" style="object-fit: cover;">
-                    <img width="100%" src="{{$item->profile_image}}" alt="{{$item->profile_image}}">
+                    <img width="100%" src="{{$item->harvest_image}}" alt="{{$item->harvest_image}}">
                     </div> 
-                    </div>  
-
-
-                    </td>
-                    <td>{{$item->name}}</td>
-                    <td>{{$item->email }}</td>
-                    <td>{{$item->nic?$item->nic:"Not Updated" }}</td>
-                    <td>{{$item->phone?$item->phone:"Not Updated" }}</td>
-                    <td>{{$item->division}}</td>
-                    <td>{{$item->dob?$item->dob:"Not Updated" }}</td>
-                    <td>{{$item->address?$item->address:"Not Updated" }}</td>
+                    </div>   
+                </td>
+                    <td>{{$item->harvest_name }}</td>
+                    <td>{{$item->harvest_quantity}}</td>
+                    <td>{{$item->harvest_phone}}</td>
+                    <td>{{$item->harvest_price}}</td>
+                    <td>{{$item->harvest_selling_type}}</td>
+                    <td>{{$item->harvest_description}}</td>
                 </tr>
 
                 {{-- @endif   --}}
@@ -205,14 +194,15 @@
                     console.log(data);
 
                     // alert(data);
-                    $('#oid').val(data[1]);
-                    $('#name').val(data[3]);
-                    $('#email').val(data[4]);
-                    $('#nic').val(data[5]);
-                    $('#phone').val(data[6]);
-                    selectElement('division',data[7])
-                    $('#dob').val(data[8]);
-                    $('#address').val(data[9]);
+                    $('#hid').val(data[1]);
+                    $('#harvest_name').val(data[3]);
+                    $('#harvest_quantity').val(data[4]);
+                    $('#harvest_phone').val(data[5]);
+                    $('#harvest_price').val(data[6]);
+                    selectElement('harvest_selling_type',data[7])
+       
+                    $('#harvest_description').val(data[8]);
+
 
                 });
                 

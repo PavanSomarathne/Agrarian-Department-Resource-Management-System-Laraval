@@ -23,6 +23,7 @@ class Harvest_Product extends Model
         'harvest_selling_type',
         'harvest_image',
         'harvest_description',
+        'is_active',
     ];
 
 }

@@ -19,7 +19,7 @@ class OfficerController extends Controller
     }
     public function update(Request $request)
     {
-        User::where(['id'=>$request['fid']])->update([
+        User::where(['id'=>$request['oid']])->update([
             'name' => $request['name'],
             'nic' => $request['nic'],
             'email' => $request['email'],
@@ -27,17 +27,17 @@ class OfficerController extends Controller
             'address' => $request['address'],
             'phone' => $request['phone'],
             'division' => $request['division'],
-            'land_type' => $request['land_type'],
-            'farmer_type' => $request['farmer_type'],
-            'acres' => $request['acres'],
         ]);
-        $data = User::where('type','=','Farmer')->get();
+        $data = User::where('type','=','Officer')->get();
         // redirect()->back()->with('status','Your Data Stored');
-        return back()->with('data',$data)->with('status','Farmer has been Updated!');
+        return back()->with('data',$data)->with('status','Officer has been Updated!');
     }
     public function delete(Request $request)
     {
-        $data = User::where('id','=',$request['id'])->delete();
-        return view('viewFarmers')->with('data',$data)->with('status','Farmer deleted successfully!');
+        User::where(['id'=>$request['id']])->update([
+            'is_active' => 0,
+        ]);
+        $data = User::where('type','=','Officer')->get();
+        return view('viewOfficers')->with('data',$data)->with('status','Officer deleted successfully!');
     }
 }

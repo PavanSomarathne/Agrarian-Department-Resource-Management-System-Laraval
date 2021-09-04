@@ -42,8 +42,11 @@ Route::post('officers', 'OfficerController@delete')->name('delete_officer');
 //Harvest Routes...
 Route::get('harvest', 'HarvestController@index')->name('harvest');
 Route::get('harvest_shop', 'HarvestController@shop')->name('harvest.shop');
+Route::get('harvest_all', 'HarvestController@viewAll')->name('harvest.viewall');
 Route::get('harvest_shop/{id}', 'HarvestController@product')->name('harvest.product');
 Route::post('harvest', 'HarvestController@store')->name('harvest.add');
+Route::put('harvest_update', 'HarvestController@update')->name('harvest.update');
+Route::post('harvest_delete', 'HarvestController@delete')->name('harvest.delete');
 
 // Registration officer Routes...
 Route::get('register_officer', 'Auth\RegisterOfficerController@showRegistrationForm')->name('register_officer');

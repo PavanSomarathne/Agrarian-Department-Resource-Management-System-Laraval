@@ -88,7 +88,7 @@
 						</li>
 						<li> <a href="{{ route('harvest.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Harvest</a>
 						</li>
-						<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>View Harvest</a>
+						<li> <a href="{{ route('harvest.viewall') }}"><i class="bx bx-right-arrow-alt"></i>View Harvest</a>
 						</li>
 						<li> <a href="/subsidies"><i class="bx bx-right-arrow-alt"></i>Subsidies</a>
 						</li>
