@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+
 <div class="page-content">
 	<!--breadcrumb-->
 	<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -95,19 +96,27 @@
 		</div>
 	</div>
 	<!--end row-->
+	<div class="card">
+		<div class="card-body">
+			<div class="table-responsive">
+				<div id='calendar'></div>
+			</div>
+		</div>
+	</div>
+</div>
+
 </div>
 
 <script>
-
 	var options = {
-		series: [<?php foreach($farmersType as $divi) echo $divi.','; ?>],
+		series: [<?php foreach ($farmersType as $divi) echo $divi . ','; ?>],
 		chart: {
 			foreColor: '#9ba7b2',
 			height: 330,
 			type: 'pie',
 		},
-		colors: ["#8833ff",  "#17a00e",],
-		labels: [<?php foreach($farmersType as $key => $divi) echo "\"".$key."\","; ?>],
+		colors: ["#8833ff", "#17a00e", ],
+		labels: [<?php foreach ($farmersType as $key => $divi) echo "\"" . $key . "\","; ?>],
 		responsive: [{
 			breakpoint: 480,
 			options: {
@@ -122,16 +131,16 @@
 	};
 	var chart = new ApexCharts(document.querySelector("#chart_officers"), options);
 	chart.render();
-	// alert("<?php foreach($userDivision as $key => $divi) echo '\"'.$key.'\",'; ?>");
+	// alert("<?php foreach ($userDivision as $key => $divi) echo '\"' . $key . '\",'; ?>");
 	var options = {
-		series: [<?php foreach($userDivision as $divi) echo $divi.','; ?>],
+		series: [<?php foreach ($userDivision as $divi) echo $divi . ','; ?>],
 		chart: {
 			foreColor: '#9ba7b2',
 			height: 330,
 			type: 'pie',
 		},
 		colors: ["#8833ff", "#6c757d", "#17a00e", "#f41127", "#ffc107"],
-		labels: [<?php foreach($userDivision as $key => $divi) echo "\"".$key."\","; ?>],
+		labels: [<?php foreach ($userDivision as $key => $divi) echo "\"" . $key . "\","; ?>],
 		responsive: [{
 			breakpoint: 480,
 			options: {
@@ -147,5 +156,33 @@
 	var chart = new ApexCharts(document.querySelector("#chart_farmers"), options);
 	chart.render();
 
+</script>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+
+		var calendarEl = document.getElementById('calendar');
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+			headerToolbar: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+			},
+			initialView: 'dayGridMonth',
+			initialDate: '2021-09-01',
+			navLinks: true, // can click day/week names to navigate views
+			selectable: true,
+			nowIndicator: true,
+			dayMaxEvents: true, // allow "more" link when too many events
+			editable: true,
+			selectable: true,
+			businessHours: true,
+			dayMaxEvents: true, // allow "more" link when too many events
+			events: [
+				<?php foreach ($events as $ev) echo "{title: \"" . $ev['title'] . "\", start:\"" . $ev['date'] . "\",description:\"". $ev['description']."\"},"; ?>
+			],
+		});
+		calendar.render();
+	});
 </script>
 @stop

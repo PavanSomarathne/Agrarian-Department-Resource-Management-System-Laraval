@@ -18,6 +18,9 @@
       <link href={{asset('assets/css/icons.css')}} rel="stylesheet">
       <link href={{asset('assets/css/pace.min.css')}} rel="stylesheet">
       <link href={{asset('assets/css/semi-dark.css')}} rel="stylesheet">
+	  <link href={{asset('assets/plugins/fullcalendar/css/main.min.css')}} rel="stylesheet">
+
+      <!-- CSS FILES End -->
 	  
 	  <!-- DataTables added by Pavan -->
 	 
@@ -35,7 +38,9 @@
       <script src={{asset('assets/js/pace.min.js')}}></script> 
       <script src={{asset('assets/js/widgets.js')}}></script> 
       <script src={{asset('assets/js/app.js')}}></script>
+	  <script src={{asset('assets/plugins/fullcalendar/js/main.min.js')}}></script>
 	  <script src={{asset('assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}></script>
+	  
 	  <script src="/js/font_awesome_all.js"></script> <!--added by Pavan -->
 
 	  <!-- DataTables  & Plugins added by Pavan -->
