@@ -22,9 +22,11 @@ class DashboardController extends Controller
         ->groupBy('division')
         ->pluck('total','division')->all();
 
+        $events = Event::all();
+
         error_log( print_r( $userDivision, true ) );
 
-        return view('dashboard',['farmersType'=> $farmersType,'userDivision'=> $userDivision]);
+        return view('dashboard',['farmersType'=> $farmersType,'userDivision'=> $userDivision, 'events'=>$events]);
 
         
     }
