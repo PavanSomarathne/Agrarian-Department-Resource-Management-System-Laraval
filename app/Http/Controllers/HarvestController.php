@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Harvest_Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,6 +18,12 @@ class HarvestController extends Controller
     public function index()
     {
         return view('harvest.add_harvest');
+    }
+
+    public function viewAll()
+    {
+        $data = Harvest_Product::all();  
+        return view('harvest.viewHarvest')->with('data',$data);
     }
 
     /**
@@ -86,9 +93,9 @@ class HarvestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function confirm()
     {
-        //
+        return view('harvest.confirm');
     }
 
     /**
@@ -97,9 +104,19 @@ class HarvestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function buy(Request $request)
     {
-        //
+        $total=$request['quantity']*$request['harvest_price'];
+        $request->request->add([
+            'userName' => Auth::user()->name,
+            'userEmail' => Auth::user()->email,
+            'userPhone' => Auth::user()->phone,
+            'userAddress' => Auth::user()->address,
+            'total' => $total,
+
+        ]);
+  
+        return view('harvest.checkout')->with('data',$request);
     }
 
     /**
@@ -109,19 +126,26 @@ class HarvestController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        Harvest_Product::where(['id'=>$request['hid']])->update([
+            'harvest_name' => $request['harvest_name'],
+            'harvest_quantity' => $request['harvest_quantity'],
+            'harvest_phone' => $request['harvest_phone'],
+            'harvest_price' => $request['harvest_price'],
+            'harvest_selling_type' => $request['harvest_selling_type'],
+            'harvest_description' => $request['harvest_description'],
+        ]);
+        $data = Harvest_Product::all(); 
+        // redirect()->back()->with('status','Your Data Stored');
+        return back()->with('data',$data)->with('status','Harvest Product has been Updated!');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function delete(Request $request)
     {
-        //
+        Harvest_Product::where(['id'=>$request['id']])->update([
+            'is_active' => 0,
+        ]);
+        $data = Harvest_Product::all(); 
+        return back()->with('data',$data)->with('status','Product deleted successfully!');
     }
 }

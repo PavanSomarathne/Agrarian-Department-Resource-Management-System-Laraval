@@ -30,6 +30,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'farmer_type',
         'type',
         'password',
+        'profile_image',
+        'is_active',
     ];
 
     /**

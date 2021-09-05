@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @include('layouts/header')
-
+@section('content')
 <section class="wf100 p80">
     <div class="container d-flex justify-content-center">
    
@@ -53,5 +53,5 @@
 
     </div>
 </section>
-
+@endsection
 <!--Causes End-->

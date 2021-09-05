@@ -22,6 +22,7 @@ class CreateHarvestTable extends Migration
             $table->string('harvest_selling_type');
             $table->string('harvest_description');
             $table->string('harvest_image');
+            $table->string('is_active')->default(1);
         });
     }
 
