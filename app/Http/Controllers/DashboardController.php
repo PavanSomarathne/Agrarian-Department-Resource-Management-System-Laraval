@@ -15,18 +15,23 @@ class DashboardController extends Controller
         $farmersType = User::select('land_type', User::raw('count(*) as total'))
         ->groupBy('land_type')
         ->pluck('total','land_type')->all();
-        // $farmersCount = User::select('land_type', User::raw('count(*) as total'))
-        // ->groupBy('land_type')
-        // ->pluck('total','land_type')->all();
+
+
         $userDivision = User::select('division', User::raw('count(*) as total'))
         ->groupBy('division')
         ->pluck('total','division')->all();
+
+        $farmers = User::where('type','=','Farmer')->get();
+        $farmersCount = $farmers->count();
+
+        $officers = User::where('type','=','Officer')->get();
+        $officersCount = $officers->count();
 
         $events = Event::all();
 
         error_log( print_r( $userDivision, true ) );
 
-        return view('dashboard',['farmersType'=> $farmersType,'userDivision'=> $userDivision, 'events'=>$events]);
+        return view('dashboard',['farmersType'=> $farmersType,'userDivision'=> $userDivision, 'events'=>$events,'farmersCount'=>$farmersCount,'officersCount'=>$officersCount,]);
 
         
     }
