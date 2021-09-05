@@ -90,9 +90,13 @@ Route::get('/dashboard', 'DashboardController@index');
 
 Route::get('/subsidies', 'SubsidiesController@index');
 Route::post('/subsidies', 'SubsidiesController@store');
+Route::put('/subsidies', 'SubsidiesController@update');
+Route::delete('/subsidies', 'SubsidiesController@delete');
 
 Route::get('/events', 'EventsController@index');
 Route::post('/events', 'EventsController@store');
+Route::put('/events', 'EventsController@update');
+Route::delete('/events', 'EventsController@delete');
 
 Route::get('datatables/data', 'DatatablesController@anyData')->name('datatables.data');
 
