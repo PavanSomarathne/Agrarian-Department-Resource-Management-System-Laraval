@@ -22,8 +22,8 @@
 				<div class="card-body">
 					<div class="d-flex align-items-center">
 						<div>
-							<p class="mb-0">Total Orders</p>
-							<h5 class="mb-0">867</h5>
+							<p class="mb-0">No of Harvest Products</p>
+							<h5 class="mb-0">{{$productsCount}}</h5>
 						</div>
 						<div class="ms-auto"> <i class='bx bx-cart font-30'></i>
 						</div>

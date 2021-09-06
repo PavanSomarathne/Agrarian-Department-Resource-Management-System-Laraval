@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\User;
+use App\Models\Harvest_Product;
+
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Arr;
 
@@ -35,12 +37,16 @@ class DashboardController extends Controller
         $officers = User::where('type','=','Officer')->get();
         $officersCount = $officers->count();
 
+        $products = Harvest_Product::all();
+        $productsCount = $products->count();
+
+
         $events = Event::all();
 
         error_log( print_r( $filteredDivisions, true ) );
        
 
-        return view('dashboard',['farmersType'=> $filteredFarmerType,'userDivision'=> $filteredDivisions, 'events'=>$events,'farmersCount'=>$farmersCount,'officersCount'=>$officersCount,]);
+        return view('dashboard',['farmersType'=> $filteredFarmerType,'userDivision'=> $filteredDivisions, 'events'=>$events,'farmersCount'=>$farmersCount,'officersCount'=>$officersCount,'productsCount'=>$productsCount]);
 
         
     }
