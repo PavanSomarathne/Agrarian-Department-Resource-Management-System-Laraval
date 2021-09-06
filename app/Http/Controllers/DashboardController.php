@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
-
+use Illuminate\Support\Arr;
 
 
 class DashboardController extends Controller
@@ -21,6 +21,14 @@ class DashboardController extends Controller
         ->groupBy('division')
         ->pluck('total','division')->all();
 
+        $filteredDivisions = Arr::where($userDivision, function ($value, $key) {
+            return $key != '';
+        });
+
+        $filteredFarmerType = Arr::where($farmersType, function ($value, $key) {
+            return $key != '';
+        });
+
         $farmers = User::where('type','=','Farmer')->get();
         $farmersCount = $farmers->count();
 
@@ -29,9 +37,10 @@ class DashboardController extends Controller
 
         $events = Event::all();
 
-        error_log( print_r( $userDivision, true ) );
+        error_log( print_r( $filteredDivisions, true ) );
+       
 
-        return view('dashboard',['farmersType'=> $farmersType,'userDivision'=> $userDivision, 'events'=>$events,'farmersCount'=>$farmersCount,'officersCount'=>$officersCount,]);
+        return view('dashboard',['farmersType'=> $filteredFarmerType,'userDivision'=> $filteredDivisions, 'events'=>$events,'farmersCount'=>$farmersCount,'officersCount'=>$officersCount,]);
 
         
     }
