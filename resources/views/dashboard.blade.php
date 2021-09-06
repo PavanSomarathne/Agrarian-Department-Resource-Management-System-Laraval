@@ -22,8 +22,8 @@
 				<div class="card-body">
 					<div class="d-flex align-items-center">
 						<div>
-							<p class="mb-0">Total Orders</p>
-							<h5 class="mb-0">867</h5>
+							<p class="mb-0">No of Harvest Products</p>
+							<h5 class="mb-0">{{$productsCount}}</h5>
 						</div>
 						<div class="ms-auto"> <i class='bx bx-cart font-30'></i>
 						</div>
@@ -53,7 +53,7 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0">Number Of Officers</p>
-							<h5 class="mb-0">24</h5>
+							<h5 class="mb-0">{{$officersCount}}</h5>
 						</div>
 						<div class="ms-auto"> <i class='bx bx-group font-30'></i>
 						</div>
@@ -68,9 +68,9 @@
 					<div class="d-flex align-items-center">
 						<div>
 							<p class="mb-0">No Of Farmers</p>
-							<h5 class="mb-0">869</h5>
+							<h5 class="mb-0">{{$farmersCount}}</h5>
 						</div>
-						<div class="ms-auto"> <i class='bx bx-chat font-30'></i>
+						<div class="ms-auto"> <i class='bx bx-arch font-30'></i>
 						</div>
 					</div>
 				</div>
@@ -181,6 +181,13 @@
 			events: [
 				<?php foreach ($events as $ev) echo "{title: \"" . $ev['title'] . "\", start:\"" . $ev['date'] . "\",description:\"". $ev['description']."\"},"; ?>
 			],
+			eventClick: function(info) {
+   			 info.jsEvent.preventDefault(); // don't let the browser navigate
+				console.log("clicked");
+				
+				window.open("/events");
+				
+  			}
 		});
 		calendar.render();
 	});
