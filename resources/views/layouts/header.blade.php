@@ -1,4 +1,4 @@
- <!--Header Start-->
+
  <header class="header-style-2">
     <nav class="navbar navbar-expand-lg">
        <a class="navbar-brand" href="/"><img width="120px" src={{asset('images/agro.png')}} alt=""></a>
@@ -127,6 +127,8 @@
        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
     </form>
  </div>
+
+
  <!--Header End-->
  
 

@@ -1,6 +1,9 @@
 
 @extends('layouts.master')
 @include('layouts/header')   
+<div id="loader" class="d-flex justify-content-center align-items-center" style="z-index: 10000; height: 100%;width: 100%;position: absolute;">
+  <img src="assets/images/pre_loader.svg" alt="">
+</div>
 <div class="wrapper home2">
       <!--Slider Start-->
          <section id="home-slider" class="owl-carousel owl-theme wf100">
@@ -141,6 +144,7 @@
             </div>
          </section>
          <!--About Section End--> 
+         
          <!--Urgent Causes Start-->
          <section class="urgent-causes wf100 p80">
             <div class="container">
@@ -879,4 +883,7 @@
          </footer>
          <!--Footer End--> 
       </div>
+
+      
+        
      
