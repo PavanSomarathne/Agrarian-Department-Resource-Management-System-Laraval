@@ -13,8 +13,8 @@
                    <li><a href="home-three.html">Home Three</a></li>
                 </ul>
              </li>
-             <li class="nav-item"> <a class="nav-link" href="about.html">About</a> </li>
-             <li class="nav-item dropdown">
+             <!-- <li class="nav-item"> <a class="nav-link" href="about.html">About</a> </li> -->
+             <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="events-grid.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Events </a>
                 <ul class="dropdown-menu">
                    <li><a href="events-grid.html">Events Grid</a></li>
@@ -24,27 +24,20 @@
                    <li><a href="events-list-two.html">Events List Two</a></li>
                    <li><a href="event-details.html">Event Details</a></li>
                 </ul>
-             </li>
-             <li class="nav-item dropdown">
+             </li> -->
+             <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="causes.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Causes </a>
                 <ul class="dropdown-menu">
                    <li><a href="causes.html">Causes Grid</a></li>
                    <li><a href="causes-list.html">Causes List</a></li>
                    <li><a href="causes-details.html">Causes Details</a> </li>
                 </ul>
-             </li>
+             </li> -->
              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="blog.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Shop </a>
-                <!-- <ul class="dropdown-menu" >
-                           <li><a href="blog.html">Blog Default</a></li>
-                           <li><a href="blog-list.html">Blog List</a> </li>
-                           <li><a href="blog-grid.html">Blog Grid</a></li>
-                           <li><a href="blog-two-col.html">Blog Two Columns</a> </li>
-                           <li><a href="blog-three-col.html">Blog Three Columns</a></li>
-                           <li><a href="blog-details.html">Blog Details</a></li>
-                        </ul> -->
+                <a class="nav-link " href="harvest_shop" role="button"> Shop </a>
+               
              </li>
-             <li class="nav-item dropdown">
+             <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Pages </a>
                 <ul class="dropdown-menu">
                    <li>
@@ -91,41 +84,37 @@
              <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="contact.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Contact </a>
                 <ul class="dropdown-menu">
-                   <li><a href="contact-one.html">Contact One</a> </li>
+                   <li><a href="contact-one.html">Profile</a> </li>
                    <li><a href="contact-two.html">Contact Two</a> </li>
                 </ul>
-             </li>
-             <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#search"> <i class="fas fa-search mt-1"></i> </a> </li>
+             </li> -->
+             <!-- <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#search"> <i class="fas fa-search mt-1"></i> </a> </li> -->
           </ul>
-          <ul class="topnav-right">
+          <ul class="topnav-right nav-item dropdown">
              @guest
              @if (Route::has('login') || Route::has('register'))
              <li class="login-reg"> <a href="{{ route('login') }}">Login</a> | <a href="{{ route('register') }}">Signup</a> | <a href="{{ route('register_farmer') }}">Signup - Farmer</a> </li>
              @endif
              @else
-             <li class="dropdown">
-                <a class="cart-icon" href="#" role="button" id="cartdropdown" data-toggle="dropdown"> <i class="fas fa-shopping-cart mt-2"></i></a>
-                <div class="dropdown-menu cart-box" aria-labelledby="cartdropdown">
-                   Recently added item(s)
-                   <ul class="list">
-                      <li class="item">
-                         <a href="#" class="preview-image"><img class="preview" src="images/pro.jpg" alt=""></a>
-                         <div class="description"> <a href="#">Sample Course</a> <strong class="price">1 x $44.95</strong> </div>
-                      </li>
-                      <li class="item">
-                         <a href="#" class="preview-image"><img class="preview" src="images/pro.jpg" alt=""></a>
-                         <div class="description"> <a href="#">Sample Course</a> <strong class="price">1 x $44.95</strong> </div>
-                      </li>
-                   </ul>
-                   <div class="total">Total: <strong>$44.95</strong></div>
-                   <div class="view-link"><a href="#">Proceed to Checkout</a> <a href="#">View cart </a></div>
-                </div>
+             <div class="d-flex align-items-center">
+             <li class="p-0 m-0">
+             <img width="40px" style="border-radius: 25px;" src="{{ Auth::user()->profile_image }}" class="user-img" alt="user avatar">
              </li>
-             <li class="login-reg">| <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"> <b>Hi! {{ Auth::user()->name }}</b></a></li>
+             <li class="login-reg"><a class="nav-link dropdown-toggle" href="contact.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <b>Hi ! {{ Auth::user()->name }}</b></a>
+            <ul class="dropdown-menu">
+               @if (Auth::user()->type != 'User')
+                   <li><a href="dashboard">Dashboard &emsp;&emsp; </a> </li> 
+                   @endif
+                   <li><a href="contact-two.html">Profile 	&emsp;&emsp;  </a> </li>
+                   <li><a href="" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Log Out</a> </li>
+                </ul>
+            </li>
+             </div>
              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
              </form>
+             
              @endguest
           </ul>
        </div>

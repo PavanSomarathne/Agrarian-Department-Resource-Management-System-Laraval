@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
+    <link href="https://use.fontawesome.com/releases/v5.0.1/css/all.css" rel="stylesheet">
       <!-- CSS FILES End -->
    </head>
    <!-- @extends('layouts.app') -->
@@ -42,7 +42,7 @@
       <script src="{{ asset('js/custom.js') }} "></script>
       <script src="/js/font_awesome_all.js"></script>
       <!-- DataTables  & Plugins -->
-      <script src="assets/plugins/jquery/jquery.min.js"></script>
+      <!-- <script src="assets/plugins/jquery/jquery.min.js"></script> -->
       <script src="assets/plugins/bootstrap/js/bootstrap.bundle.js"></script>
       <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
       <script src="assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

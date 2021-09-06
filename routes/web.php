@@ -97,3 +97,7 @@ Route::post('/events', 'EventsController@store');
 Route::get('datatables/data', 'DatatablesController@anyData')->name('datatables.data');
 
 Route::get('farmerss', 'DatatablesController@index');
+
+Route::get('/test', function () {
+    return view('profile');
+});
