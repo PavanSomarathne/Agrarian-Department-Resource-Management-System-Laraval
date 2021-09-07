@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('type')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('profile_image')->default('/storage/profile_images/profile.png');
+            $table->string('profile_image')->nullable();
             $table->string('is_active')->default(1);
             $table->rememberToken();
             $table->timestamps();

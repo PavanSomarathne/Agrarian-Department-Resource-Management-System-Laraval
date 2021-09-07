@@ -10,6 +10,9 @@
     <section class="shop wf100 p80">
             <div class="container">
                <div class="row">
+                  @if(count($data) < 1)
+                  <h3 class="mb-5 mx-auto">No Items</h3>
+                  @endif
                @foreach ($data as $item)
             
                   <!--Pro Box Start-->

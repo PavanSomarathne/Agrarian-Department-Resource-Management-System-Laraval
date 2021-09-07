@@ -50,6 +50,10 @@ Route::post('harvest_delete', 'HarvestController@delete')->name('harvest.delete'
 Route::post('harvest_buy', 'HarvestController@buy')->name('harvest.buy')->middleware('auth');
 Route::get('harvest_confirm', 'HarvestController@confirm')->name('harvest.confirm')->middleware('auth');
 
+//Profile Routes...
+Route::get('profile', 'ProfileController@index')->name('profile.view');
+Route::put('profile', 'ProfileController@update')->name('profile.update');
+
 // Registration officer Routes...
 Route::get('register_officer', 'Auth\RegisterOfficerController@showRegistrationForm')->name('register_officer');
 Route::post('register_officer', 'Auth\RegisterOfficerController@register')->name('register_officer');
@@ -101,7 +105,7 @@ Route::delete('/events', 'EventsController@delete');
 Route::get('datatables/data', 'DatatablesController@anyData')->name('datatables.data');
 
 Route::get('farmerss', 'DatatablesController@index');
-
-Route::get('/test', function () {
-    return view('profile');
-});
+//for testing a view
+// Route::get('/test', function () {
+//     return view('profile.profile_admin');
+// });
