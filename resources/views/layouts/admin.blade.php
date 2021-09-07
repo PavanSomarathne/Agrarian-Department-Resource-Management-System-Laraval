@@ -95,6 +95,12 @@
 					</li>
 					<li> <a href="/events"><i class="bx bx-right-arrow-alt"></i>Events</a>
 					</li>
+					<li> <a href="/fertilizerFarmer"><i class="bx bx-right-arrow-alt"></i>Fertilizer Requests Farmer</a>
+					</li>
+					<li> <a href="/fertilizerOfficer"><i class="bx bx-right-arrow-alt"></i>Fertilizer Requests Officer</a>
+					</li>
+					<li> <a href="/fertilizerAdmin"><i class="bx bx-right-arrow-alt"></i>Fertilizer Requests Admin</a>
+					</li>
 				</ul>
 			</li>
 		</ul>

@@ -101,3 +101,14 @@ Route::delete('/events', 'EventsController@delete');
 Route::get('datatables/data', 'DatatablesController@anyData')->name('datatables.data');
 
 Route::get('farmerss', 'DatatablesController@index');
+
+Route::get('/fertilizerFarmer', 'FertilizerFarmerController@index');
+Route::post('/fertilizerFarmer', 'FertilizerFarmerController@store');
+
+Route::get('/fertilizerOfficer', 'FertilizerOfficerController@index');
+Route::post('/fertilizerOfficer', 'FertilizerOfficerController@store');
+
+
+Route::get('/fertilizerAdmin', 'FertilizerAdminController@index');
+Route::post('/fertilizerApprove', 'FertilizerAdminController@approve');
+Route::post('/fertilizerReject', 'FertilizerAdminController@reject');
