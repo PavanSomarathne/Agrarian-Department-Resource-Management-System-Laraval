@@ -47,7 +47,6 @@
                     <td>{{$item->fertilizerType }}</td>
                     <td>{{$item->acres }}</td>
                     <td>{{$item->status }}</td>
-
                     @if($item->status == 'Pending')
                     <td>
                         <div class="row"> 
@@ -63,6 +62,8 @@
                         </form>
                         <div>
                     </td>
+                    @else
+                    <td>N/A</td>        
                     @endif
                 </tr>
 
