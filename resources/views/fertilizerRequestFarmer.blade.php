@@ -16,31 +16,22 @@
     </div>
     <br />
     <div class="col mt-8">
-        <h6 class="mb-0 text-uppercase">Add Events</h6>
+        <h6 class="mb-0 text-uppercase">Send Fertilizer Request</h6>
         <hr />
         <div class="card border-top border-0 border-4 border-success">
             <div class="card-body p-5">
                 <div class="card-title d-flex align-items-center">
-                    <div><i class="bx bxs-time me-1 font-22 text-success"></i>
+                    <div><i class="bx bxs-send me-1 font-22 text-success"></i>
                     </div>
-                    <h5 class="mb-0 text-success">Add New Event</h5>
+                    <h5 class="mb-0 text-success">Send Fertilizer Request</h5>
                 </div>
                 <hr>
-                <form class="row g-3" method="POST" action="/events">
+                <form class="row g-3" method="POST" action="/fertilizerFarmer">
                     @csrf
                     <div class="col-md-6">
-                        <label for="inputFirstName" class="form-label">Select Date</label>
-                        <input type="date" class="form-control @error('date') is-invalid @enderror"" id=" date" name="date">
-                        @error('date')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
-                    <div class="col-md-6">
-                        <label for="inputFirstName" class="form-label">Select Time</label>
-                        <input type="time" class="form-control @error('time') is-invalid @enderror"" id=" date" name="time">
-                        @error('time')
+                        <label for="inputFirstName" class="form-label">Name of the Farmer</label>
+                        <input type="text" class="form-control @error('name') is-invalid @enderror"" id=" name" name="name">
+                        @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
@@ -53,30 +44,34 @@
                             <option> Division 2</option>
                             <option> Division 3</option>
                             </select>
-                            @error('division')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+
                     </div>
                     <div class="col-md-6">
-                        <label for="inputFirstName" class="form-label">Title</label>
-                        <input type="text" class="form-control @error('title') is-invalid @enderror"" id=" date" name="title">
-                        @error('title')
+                        <label for="inputFirstName" class="form-label">Cultivation Season</label>
+                        <select class=" form-control" id="division" name="season">
+                            <option> Yala Season</option>
+                            <option> Maha Season</option>
+                            </select>
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputFirstName" class="form-label">Cultivation Type</label>
+                        <select class=" form-control" id="division" name="type">
+                            <option> Padding Cultivation</option>
+                            <option> Additional Cultivation</option>
+                            </select>
+                      
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputFirstName" class="form-label">Acres</label>
+                        <input type="text" class="form-control @error('acres') is-invalid @enderror"" id=" acres" name="acres">
+                        @error('acres')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
                         @enderror
                     </div>
-                    <div class="col-md-6">
-                        <label for="inputLastName" class="form-label">Description</label>
-                        <input type="text" class="form-control @error('description') is-invalid @enderror"" id=" description" name="description">
-                        @error('description')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
+                   
                     <div class="col-12">
                         <button type="submit" class="btn btn-success px-5">Submit</button>
                     </div>
