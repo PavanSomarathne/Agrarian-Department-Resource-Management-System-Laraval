@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @include('layouts/header')
 @section('content')
-
 <div class="container d-flex justify-content-center">
 
    @foreach ($data as $item)
@@ -112,7 +111,7 @@
                                  </ul>
                               </div>
                            </li>
-                           <!--Comment End-->
+                                             <!--Comment End-->
                         </ul>
                         <div class="wf100 comment-form">
                            <h4>Leave a Review</h4>
@@ -146,8 +145,7 @@
          </div>
       </div>
    </div>
-   @endforeach
-
+   @endforeach     
 </div>
 @endsection
 <!--Causes End-->

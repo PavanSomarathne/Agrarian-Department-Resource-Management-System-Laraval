@@ -112,3 +112,6 @@ Route::post('/fertilizerOfficer', 'FertilizerOfficerController@store');
 Route::get('/fertilizerAdmin', 'FertilizerAdminController@index');
 Route::post('/fertilizerApprove', 'FertilizerAdminController@approve');
 Route::post('/fertilizerReject', 'FertilizerAdminController@reject');
+Route::get('/test', function () {
+    return view('profile');
+});
