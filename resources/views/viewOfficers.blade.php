@@ -145,7 +145,7 @@
             <tbody>
             @if(is_array($data) || is_object($data))
                 @foreach ($data as $item)
-                {{--  --}}
+                @if($item->is_active)
 
                 <tr>
                 <td style="text-align:center">
@@ -185,7 +185,7 @@
                     <td>{{$item->address?$item->address:"Not Updated" }}</td>
                 </tr>
 
-                {{-- @endif   --}}
+               @endif  
                 @endforeach
             @endif
             </tbody>

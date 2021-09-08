@@ -17,19 +17,13 @@
 
 
     <div class="col">
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success" style="background-color: #5D9C5B;">
+            <h4 class="text-center "><strong class="text-white">{{ $message }}</strong></h4>
+        </div>
+        @endif
         <div class="card border-top border-0 border-4 border-success">
             <div class="card-body p-5">
-
-                @isset($register)
-
-                <h4 style="color: green;">User added successfully!</h4>
-
-                @endisset
-                @isset($error)
-
-                <h4 style="color: red;">User registration failed!</h4>
-
-                @endisset
                 <div class="card-title d-flex align-items-center">
                     <div><i class="healthicons:officer-outline me-1 font-22"></i>
                     </div>
@@ -39,7 +33,7 @@
                 <form id="register-form" class="row g-3" method="POST" action="{{ route('register_officer') }}">
                     @csrf
                     <div class="col-md-6">
-                    <label for="inputLastName" class="form-label">Name</label>
+                        <label for="inputLastName" class="form-label">Name</label>
                         <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" placeholder="Your Name" name="name" value="{{ old('name') }}" required>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -51,21 +45,21 @@
                     </div>
 
                     <div class="col-md-6">
-   
+
                         <label for="inputLastName" class="form-label">Email</label>
-                            <input type="text" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email Address" name="email" value="{{ old('email') }}">
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                       
+                        <input type="text" id="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email Address" name="email" value="{{ old('email') }}">
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
 
                     </div>
 
 
                     <div class="col-md-6 payment-method">
-                    <label for="inputLastName" class="form-label">Division</label>
+                        <label for="inputLastName" class="form-label">Division</label>
                         <select class="form-control  mt-0 @error('division') is-invalid @enderror" name="division" value="{{ old('division') }}">
                             <option value="{{ old('division') ? old('division') : 'null' }}">{{ old('division')&&old('division')!='null' ? old('division') : 'Division' }}</option>
                             <option value="Gokarella North">Gokarella North</option>
@@ -80,14 +74,14 @@
                         @enderror
                     </div>
                     <div class="col-md-6">
-                    <label for="inputLastName" class="form-label">Grama Niladhari Division</label>
-                            <input id="nic" type="text" class="form-control @error('grama_division') is-invalid @enderror" placeholder="Grama Niladhari Division" value="{{ old('grama_division') }}" name="grama_division">
-                            @error('grama_division')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                       
+                        <label for="inputLastName" class="form-label">Grama Niladhari Division</label>
+                        <input id="nic" type="text" class="form-control @error('grama_division') is-invalid @enderror" placeholder="Grama Niladhari Division" value="{{ old('grama_division') }}" name="grama_division">
+                        @error('grama_division')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
                     </div>
 
                     <!-- <li class="col-md-6">

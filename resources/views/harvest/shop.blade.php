@@ -11,7 +11,7 @@
                   <h3 class="mb-5 mx-auto">No Items</h3>
                   @endif
                @foreach ($data as $item)
-            
+               @if($item->is_active)
                   <!--Pro Box Start-->
                   <div class="col-lg-3 col-sm-6">
                      <div class="product-box">
@@ -22,7 +22,7 @@
                         </div>
                      </div>
                   </div>
-                
+                @endif
                 @endforeach
   
                   <!-- <div class="col-lg-3 col-sm-6">

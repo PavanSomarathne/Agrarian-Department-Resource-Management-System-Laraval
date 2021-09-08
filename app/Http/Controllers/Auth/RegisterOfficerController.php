@@ -96,16 +96,15 @@ class RegisterOfficerController extends Controller
         return redirect()->route('register_officer',["error"=>"failed"]);
        }
         // $this->guard()->login($user);
-        
-    
 
             if ($response = $this->registered($request, $user)) {
-                return redirect()->route('register_officer',["register"=>"success"]);
+                return back()
+                        ->with('success','Officer has been added!');
             }
     
             return $request->wantsJson()
                         ? new JsonResponse([], 201)
-                        : redirect()->route('register_officer',["register"=>"success"]);
+                        : back()->with('success','Officer has been added!');
      
     }
 
@@ -131,6 +130,7 @@ class RegisterOfficerController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'division' => $data['division'],
+            'grama_division' => $data['grama_division'],
             'type' => $data['type'],
             'password' => Hash::make($data['password']),
         ]);
