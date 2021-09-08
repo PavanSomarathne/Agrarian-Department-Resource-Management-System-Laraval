@@ -21,7 +21,7 @@
 	<link href={{asset('assets/plugins/fullcalendar/css/main.min.css')}} rel="stylesheet">
 
 	<!-- CSS FILES End -->
-	
+
 	<!-- DataTables added by Pavan -->
 
 
@@ -63,9 +63,9 @@
 	<div class="sidebar-wrapper" data-simplebar="true">
 		<div class="sidebar-header">
 			<a href="/" class="mx-auto">
-			<div >
-				<img src="assets/images/agro.png" class="logo-icon" alt="logo icon">
-			</div>
+				<div>
+					<img src="assets/images/agro.png" class="logo-icon" alt="logo icon">
+				</div>
 			</a>
 			<!-- <div class="toggle-icon ms-auto">
 					<i class='bx bx-first-page'></i>
@@ -80,8 +80,36 @@
 					<div class="menu-title">Dashboard</div>
 				</a>
 				<ul>
-				<li> <a href="/farmerDashboard"><i class="bx bx-right-arrow-alt"></i>Farmer Dashboard</a>
+					@if(Auth::user()->type == 'Farmer')
+
+					<li> <a href="{{ route('harvest.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Harvest</a>
 					</li>
+					<li> <a href="{{ route('harvest.viewall') }}"><i class="bx bx-right-arrow-alt"></i>View Harvest</a>
+					</li>
+					<li> <a href="/fertilizerFarmer"><i class="bx bx-right-arrow-alt"></i>Request Fertilizers</a>
+					</li>
+					<li> <a href="{{ route('profile.update') }}"><i class="bx bx-right-arrow-alt"></i>My Profile</a>
+					</li>
+					@elseif(Auth::user()->type == 'Officer')
+
+					<li> <a href="{{ route('register_farmer') }}"><i class="bx bx-right-arrow-alt"></i>Add Farmer</a>
+					</li>
+					<li> <a href="{{ route('farmer.viewall') }}"><i class="bx bx-right-arrow-alt"></i>View Farmers</a>
+					</li>
+					<li> <a href="{{ route('harvest.add') }}"><i class="bx bx-right-arrow-alt"></i>Add Harvest</a>
+					</li>
+					<li> <a href="{{ route('harvest.viewall') }}"><i class="bx bx-right-arrow-alt"></i>View Harvest</a>
+					</li>
+					<li> <a href="/subsidies"><i class="bx bx-right-arrow-alt"></i>Subsidies</a>
+					</li>
+					<li> <a href="/events"><i class="bx bx-right-arrow-alt"></i>Events</a>
+					</li>
+					<li> <a href="/fertilizerOfficer"><i class="bx bx-right-arrow-alt"></i>Request Fertilizers</a>
+					</li>
+					<li> <a href="{{ route('profile.update') }}"><i class="bx bx-right-arrow-alt"></i>My Profile</a>
+					</li>
+					@else
+
 					<li> <a href="{{ route('register_farmer') }}"><i class="bx bx-right-arrow-alt"></i>Add Farmer</a>
 					</li>
 					<li> <a href="{{ route('farmer.viewall') }}"><i class="bx bx-right-arrow-alt"></i>View Farmers</a>
@@ -97,14 +125,14 @@
 					<li> <a href="/subsidies"><i class="bx bx-right-arrow-alt"></i>Subsidies</a>
 					</li>
 					<li> <a href="/events"><i class="bx bx-right-arrow-alt"></i>Events</a>
+					</li>
+					<li> <a href="/fertilizerOfficer"><i class="bx bx-right-arrow-alt"></i>Request Fertilizers (Off)</a>
+					</li>
+					<li> <a href="/fertilizerAdmin"><i class="bx bx-right-arrow-alt"></i>Fertilizer Requests (WH)</a>
+					</li>
 					<li> <a href="{{ route('profile.update') }}"><i class="bx bx-right-arrow-alt"></i>My Profile</a>
 					</li>
-					<li> <a href="/fertilizerFarmer"><i class="bx bx-right-arrow-alt"></i>Fertilizer Requests Farmer</a>
-					</li>
-					<li> <a href="/fertilizerOfficer"><i class="bx bx-right-arrow-alt"></i>Fertilizer Requests Officer</a>
-					</li>
-					<li> <a href="/fertilizerAdmin"><i class="bx bx-right-arrow-alt"></i>Fertilizer Requests Admin</a>
-					</li>
+					@endif
 				</ul>
 			</li>
 		</ul>
@@ -160,7 +188,7 @@
 								<div class="header-notifications-list">
 									<a class="dropdown-item" href="javascript:;">
 										<div class="d-flex align-items-center">
-											
+
 											<div class="flex-grow-1">
 												<h6 class="msg-name"><span class="msg-time float-end">
 													</span></h6>
@@ -349,10 +377,10 @@
 						</div>
 						@endif
 						@else
-						
+
 						@if (Auth::user()->profile_image == null)
 						<img src="/storage/profile_images/profile.png" class="user-img" alt="user avatar">
-						@else 
+						@else
 						<img src={{ Auth::user()->profile_image }} class="user-img" alt="user avatar">
 						@endif
 						<div class="user-info ps-3">

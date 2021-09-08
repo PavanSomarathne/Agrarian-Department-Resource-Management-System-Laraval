@@ -9,7 +9,7 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Your Profile</li>
+                    <li class="breadcrumb-item" aria-current="page">Your Profile</li>
                 </ol>
             </nav>
         </div>
@@ -40,7 +40,12 @@
                                 <div class="card">
                                     <div class="card-body ">
                                         <div class="d-flex flex-column align-items-center text-center">
+                                            @if(!empty($item->image))
                                             <img id="pro_image" src="{{$item->profile_image}}" alt="Admin" class=" p-1 bg-light" style="object-fit: cover;border-radius: 50%;overflow: hidden;width: 200px;height:200px">
+                                            @else
+                                            <img id="pro_image" src="/storage/profile_images/profile.png" alt="Admin" class=" p-1 bg-light" style="object-fit: cover;border-radius: 50%;overflow: hidden;width: 200px;height:200px">
+
+                                            @endif
                                             <label id="edit_img_btn" class="btn btn-outline-success m-1 " onclick="document.getElementById('my_file').click()" ><i class="fas fa-pencil-alt"></i></label>
                                             <input type="file" id="my_file" style="display: none;"  class="@error('profile_image') is-invalid @enderror btn btn-outline-success m-1 " name="profile_image"  onchange="readURL(this);" />
                                             @error('profile_image')

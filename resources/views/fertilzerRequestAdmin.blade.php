@@ -9,7 +9,7 @@
                 <ol class="breadcrumb mb-0 p-0">
                     <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                     </li>
-                    <li class="breadcrumb-item active" aria-current="page">Manage Events</Em></li>
+                    <li class="breadcrumb-item" aria-current="page">Fertilizer Reques - Warehouse Manager</Em></li>
                 </ol>
             </nav>
         </div>
@@ -19,7 +19,7 @@
 
     <div class="col-sm-12 card p-4">
         <!-- Data table start here -->
-        <h3>Requests Send By Farmers</h3>
+        <h3>Requests Send By Officers</h3>
         <br />
         <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
             <thead>

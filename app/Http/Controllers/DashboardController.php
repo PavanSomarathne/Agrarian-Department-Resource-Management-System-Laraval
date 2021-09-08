@@ -6,14 +6,15 @@ use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\User;
 use App\Models\Harvest_Product;
-
+use App\Models\Subsidie;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Arr;
-
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
     public function index(){
+        if(Auth::user()->type != "Farmer"){
         $farmersType = User::select('land_type', User::raw('count(*) as total'))
         ->groupBy('land_type')
         ->pluck('total','land_type')->all();
@@ -47,7 +48,11 @@ class DashboardController extends Controller
        
 
         return view('dashboard',['farmersType'=> $filteredFarmerType,'userDivision'=> $filteredDivisions, 'events'=>$events,'farmersCount'=>$farmersCount,'officersCount'=>$officersCount,'productsCount'=>$productsCount]);
-
+    }else{
+        $events = Event::all();
+        $subsidies = Subsidie::all();
+        return view('dashboardFarmer',['events'=>$events,'subsidies'=>$subsidies,]);
+    }
         
     }
 
