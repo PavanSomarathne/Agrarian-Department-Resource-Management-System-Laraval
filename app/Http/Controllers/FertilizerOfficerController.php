@@ -11,12 +11,14 @@ class FertilizerOfficerController extends Controller
     function index()
     {
         $data = FertilizerRequestsFarmer::all();
-        return view('fertilizerRequestOfficer',['requestList'=>$data]);
+        $data2 = FertilizerRequestsOfficer::all();
+        return view('fertilizerRequestOfficer',['requestList'=>$data,'requestList2'=>$data2]);
     }
 
     public function store(Request $request){
         $request->validate([
             'acres' => ['required'],
+            'categories' => ['required'],
             ]);
         $item = new FertilizerRequestsOfficer();
         $item->acres = request('acres');
