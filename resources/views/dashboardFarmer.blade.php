@@ -19,11 +19,29 @@
     <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-4">
 
         <!--end row-->
-        <div class="card">
+        <div class="col-8 col-lg-8 col-sm-12 card">
             <div class="card-body">
                 <div class="table-responsive">
                     <div id='calendar'></div>
                 </div>
+            </div>
+        </div>
+
+        <div class="col-4 card">
+            <div class="card-body">
+                <h3>Subsidies</h3>
+                <br />
+                <ul class="list-group list-group-flush">
+                    @if(is_array($subsidies) || is_object($subsidies))
+                    @foreach ($subsidies as $item)
+                    {{-- --}}
+                    <li class="card list-group-item bg-light">
+                        <div><b>{{$item->description}}</b> </br> <span>{{$item->date}}</span> </div>
+                    </li>
+                    @endforeach
+                    @endif
+                </ul>
+
             </div>
         </div>
     </div>
