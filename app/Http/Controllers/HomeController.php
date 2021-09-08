@@ -2,6 +2,7 @@
 namespace App\Mail;
 use Illuminate\Mail\Mailable;
 namespace App\Http\Controllers;
+use App\Models\Subsidie;
 
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $subsidies = Subsidie::orderBy('id', 'desc')->take(4)->get();
+        return view('welcome',['subsidies'=>$subsidies]);
     }
     
 }
