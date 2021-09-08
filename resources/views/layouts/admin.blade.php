@@ -62,10 +62,11 @@
 	<!--sidebar wrapper -->
 	<div class="sidebar-wrapper" data-simplebar="true">
 		<div class="sidebar-header">
-
-			<div class="mx-auto">
+			<a href="/" class="mx-auto">
+			<div >
 				<img src="assets/images/agro.png" class="logo-icon" alt="logo icon">
 			</div>
+			</a>
 			<!-- <div class="toggle-icon ms-auto">
 					<i class='bx bx-first-page'></i>
 				</div> -->
@@ -346,8 +347,12 @@
 						</div>
 						@endif
 						@else
+						
+						@if (Auth::user()->profile_image == null)
+						<img src="/storage/profile_images/profile.png" class="user-img" alt="user avatar">
+						@else 
 						<img src={{ Auth::user()->profile_image }} class="user-img" alt="user avatar">
-
+						@endif
 						<div class="user-info ps-3">
 							<p class="user-name mb-0">Hi! {{ Auth::user()->name}}</p>
 							<p class="designattion mb-0">{{ Auth::user()->type}}</p>

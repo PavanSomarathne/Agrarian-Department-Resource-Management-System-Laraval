@@ -1,4 +1,45 @@
+<style>
+   #loader-wrapper .loader-section {
+      position: fixed;
+      top: 0;
+      width: 51%;
+      height: 100%;
+      background: #222222;
+      z-index: 1000;
+   }
 
+   #loader-wrapper .loader-section.section-left {
+      left: 0;
+   }
+
+   #loader-wrapper .loader-section.section-right {
+      right: 0;
+   }
+
+   .no-js #loader-wrapper {
+      display: none;
+   }
+
+   #loader {
+      position: absolute;
+      z-index: 10000;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+</style>
+
+
+<div id="loader-wrapper">
+   <div id="loader" class="">
+      <img src="assets/images/pre_loader.svg" alt="">
+   </div>
+   <div class="loader-section section-left"></div>
+   <div class="loader-section section-right"></div>
+
+</div>
  <header class="header-style-2">
     <nav class="navbar navbar-expand-lg">
        <a class="navbar-brand" href="/"><img width="120px" src={{asset('images/agro.png')}} alt=""></a>
@@ -94,8 +135,12 @@
              @else
              <div class="d-flex align-items-center">
              <li class="p-0 m-0">
-             <img width="40px" style="border-radius: 50%;background-color: #ffffff;" src="{{ Auth::user()->profile_image }}" class="user-img" alt="user avatar">
-             </li>
+             @if (Auth::user()->profile_image == null)
+               <img width="40px" height="40px" style="border-radius: 50%;background-color: #ffffff;" src="/storage/profile_images/profile.png" class="user-img" alt="user avatar">
+             @else 
+               <img width="40px" height="40px" style="border-radius: 50%;background-color: #ffffff;" src="{{ Auth::user()->profile_image }}" class="user-img" alt="user avatar">
+             @endif
+            </li>
              <li class="login-reg"><a class="nav-link dropdown-toggle" href="contact.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <b>Hi ! {{ Auth::user()->name }}</b></a>
             <ul class="dropdown-menu">
                @if (Auth::user()->type != 'User')

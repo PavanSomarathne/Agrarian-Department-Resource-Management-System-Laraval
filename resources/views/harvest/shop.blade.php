@@ -1,9 +1,6 @@
 @extends('layouts.master')
 @include('layouts/header')
 @section('content')
-<div id="loader" class="d-flex justify-content-center align-items-center position-absolute" style="height: 100vh;width: 100%;">
-  <img src="assets/images/pre_loader.svg" alt="">
-</div>
 <section class="wf100 p80">
     <div class="container d-flex justify-content-center">
    

@@ -111,7 +111,52 @@ Fonts Start
 /*********************************
 Fonts End
 *********************************/
+/* Pre loader */
 
+ 
+
+
+/* Loaded */
+.loaded #loader-wrapper .loader-section.section-left {
+    -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(-100%);  /* IE 9 */
+    transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
+}
+ 
+.loaded #loader-wrapper .loader-section.section-right {
+    -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+    -ms-transform: translateX(100%);  /* IE 9 */
+    transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
+}
+
+.loaded #loader {
+    opacity: 0;
+}
+
+.loaded #loader-wrapper {
+    visibility: hidden;
+}
+
+.loaded #loader {
+    opacity: 0;
+    -webkit-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+}
+.loaded #loader-wrapper .loader-section.section-right,
+.loaded #loader-wrapper .loader-section.section-left {
+ 
+    -webkit-transition: all 0.3s 0.3s ease-out;
+            transition: all 0.3s 0.3s ease-out;
+}
+
+.loaded #loader-wrapper {
+        -webkit-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+                transform: translateY(-100%);
+ 
+        -webkit-transition: all 0.3s 0.6s ease-out;
+                transition: all 0.3s 0.6s ease-out;
+}
 
 /*********************************
 Basic Styles
@@ -1138,11 +1183,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8bc34a', end
 
 /***************  Promises  Start  *****************/
 .promises {
-	background: url(../images/factsbg.jpg) no-repeat;
+	background: url(/images/factsbg.jpg) no-repeat;
 	background-size: cover;
 }
 .pro-title {
-	background: url(../images/border.png) no-repeat left top;
+	background: url(/images/border.png) no-repeat left top;
 	padding: 67px 0 67px 50px;
 	margin-bottom: 100px;
 }
@@ -1170,7 +1215,7 @@ p.counter-count:after {
 	position: absolute;
 	left: 0;
 	top: 0;
-	background: url(../images/line2.png) no-repeat;
+	background: url(/images/line2.png) no-repeat;
 	content: "";
 	width: 54px;
 	height: 2px;
@@ -1696,7 +1741,7 @@ section.services-area ul li.active:after {
 /***************  About  *****************/
 
 .home2-about {
-	background: url(../images/factsbg.png) bottom center #fff no-repeat;
+	background: url(/images/factsbg.png) bottom center #fff no-repeat;
 }
 .pt80 {
 	padding-top: 80px;
@@ -1795,7 +1840,7 @@ section.services-area ul li.active:after {
 /***************  Urgent Causes  *****************/
 
 .urgent-causes {
-	background: url(../images/urgentcause.png) no-repeat center center #000;
+	background: url(/images/urgentcause.png) no-repeat center center #000;
 	background-size: cover;
 }
 .section-title-2 h5 {
@@ -1949,7 +1994,7 @@ li.form-submit button:hover {
 /***************  Current Projects  *****************/
 
 .current-projects {
-	background: url(../images/mappatt.jpg) no-repeat;
+	background: url(/images/mappatt.jpg) no-repeat;
 }
 .current-projects div#myTabContent {
 	width: 100%;
@@ -2074,7 +2119,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 /*****************  News And Articles  ****************/
 
 .h2-news {
-	background: url(../images/news-artilcesbg.jpg) no-repeat;
+	background: url(/images/news-artilcesbg.jpg) no-repeat;
 	background-size: cover;
 }
 .blog-post-large {
@@ -2202,7 +2247,7 @@ header .navbar-toggler {
 /*****************  WHY Ecova  ****************/
 
 .why-ecova {
-	background: url(../images/whybg.jpg) no-repeat;
+	background: url(/images/whybg.jpg) no-repeat;
 	padding: 65px 0 65px;
 	background-size: cover;
 	text-align: center;
@@ -2397,7 +2442,7 @@ Footer Style 2 Start
 .footer-style-2 {
 	width: 100%;
 	float: left;
-	background: url(../images/fpat.jpg);
+	background: url(/images/fpat.jpg);
 	margin-top: 70px;
 }
 .footer-widget.about-ecova {
@@ -2933,7 +2978,7 @@ button.sbtn:hover {
 	left: 0;
 	top: -10px;
 	content: "";
-	background: url(../images/line3.png);
+	background: url(/images/line3.png);
 	width: 59px;
 	height: 2px;
 }
@@ -2953,7 +2998,7 @@ button.sbtn:hover {
 /**************  Core Projects  ******************/
 
 .our-core-projects {
-	background: url(../images/coreprojectbg.jpg) no-repeat;
+	background: url(/images/coreprojectbg.jpg) no-repeat;
 	background-size: cover;
 }
 .our-core-projects .owl-theme .owl-nav {
@@ -3268,7 +3313,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 /************************************/
 
 .h3teams-section {
-	background: url(../images/h3teambg.jpg) no-repeat #fff;
+	background: url(/images/h3teambg.jpg) no-repeat #fff;
 }
 .h3-stitle h1 {
 	margin: 0 0 12px;
@@ -3355,7 +3400,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	margin: 0 auto 30px;
 }
 .testimonials-section, .h3testimonials {
-	background: url(../images/patt2.jpg);
+	background: url(/images/patt2.jpg);
 }
 .h3testimonials h1.text-center {
 	margin: 0 0 30px;
@@ -3428,7 +3473,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 /***************  Home 3 Footer Start  *****************/
 
 .h3footer {
-	background: url(../images/h3footerbg.jpg) no-repeat;
+	background: url(/images/h3footerbg.jpg) no-repeat;
 	background-size: cover;
 	padding: 60px 0 0;
 }
@@ -4660,7 +4705,7 @@ Coming Soon Start
 *********************************/
 
 .coming-soon {
-	background: url(../images/coming-soon.jpg) top center fixed;
+	background: url(/images/coming-soon.jpg) top center fixed;
 	background-size: cover;
 }
 .cs-txt {
@@ -5880,7 +5925,7 @@ About Us Page
 	padding: 40px 0 80px;
 }
 .story-title-bg {
-	background: url(../images/storybg.jpg) no-repeat;
+	background: url(/images/storybg.jpg) no-repeat;
 	background-size: cover;
 	width: 100%;
 	float: left;
@@ -6099,7 +6144,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', end
 	margin: 0 0 8px;
 }
 .choose-ecova {
-	background: url(../images/patt.png);
+	background: url(/images/patt.png);
 }
 .choose-ecova .volunteer-form {
 	border-radius: 5px;

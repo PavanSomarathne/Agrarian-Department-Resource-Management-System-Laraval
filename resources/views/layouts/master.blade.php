@@ -54,18 +54,17 @@
       <script src="/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
       <script src="/assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
       <script>
-            $(window).load(function() {
-                  
-            });
             $(document).ready(function() {
-                 
-                  $('#loader').slideUp().css("visibility", "hidden");
-            });   
-      </script> 
+                  // $('#loader').slideUp().css("visibility", "hidden");
+                  setTimeout(function() {
+                        $('body').addClass('loaded');
+                  }, 1500);
+            });
+      </script>
       <content>
-      
+
             @yield('content')
-            
+
       </content>
 
 </body>

@@ -62,7 +62,7 @@
                             </li>
                             <li class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password">
+                                    <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password">
                                     @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -73,7 +73,7 @@
                             </li>
                             <li class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Re-enter Password" name="password_confirmation">
+                                    <input type="password" class="form-control" placeholder="Re-enter Password" name="password_confirmation">
                                 </div>
                             </li>
                             <li class="col-md-12">
