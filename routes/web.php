@@ -115,3 +115,6 @@ Route::post('/fertilizerReject', 'FertilizerAdminController@reject');
 Route::get('/test', function () {
     return view('profile');
 });
+
+
+Route::get('/farmerDashboard', 'FarmerDashboardController@index');
