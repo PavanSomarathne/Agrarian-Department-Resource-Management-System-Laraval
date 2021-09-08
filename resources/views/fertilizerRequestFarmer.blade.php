@@ -51,7 +51,7 @@
                         <select class=" form-control" id="division" name="season">
                             <option> Yala Season</option>
                             <option> Maha Season</option>
-                            </select>
+                        </select>
 
                     </div>
                     <div class="col-md-6">
@@ -59,8 +59,8 @@
                         <select class=" form-control" id="division" name="type">
                             <option> Padding Cultivation</option>
                             <option> Additional Cultivation</option>
-                            </select>
-                      
+                        </select>
+
                     </div>
                     <div class="col-md-6">
                         <label for="inputFirstName" class="form-label">Acres</label>
@@ -71,11 +71,20 @@
                         </span>
                         @enderror
                     </div>
-                   
+
                     <div class="col-12">
                         <button type="submit" class="btn btn-success px-5">Submit</button>
                     </div>
                 </form>
+
+                @if ($message = Session::get('success'))
+
+
+                <div class="alert alert-success alert-dismissible  m-3">
+                    <button type="button" class="btn close" data-dismiss="alert">x</button>
+                    {{ $message }}
+                </div>
+                @endif
             </div>
         </div>
     </div>
@@ -147,6 +156,6 @@
             </div>
         </div>
     </div>
-<!--end row-->
+    <!--end row-->
 </div>
 @stop

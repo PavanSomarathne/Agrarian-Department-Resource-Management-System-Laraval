@@ -26,6 +26,7 @@ class FertilizerFarmerController extends Controller
         $item->acres = request('acres');
         $item->save();
         
-        return redirect('/fertilizerFarmer');
+        return back()->with('success','Request sent successfully!');
+        // return redirect('/fertilizerFarmer');
     }
 }
