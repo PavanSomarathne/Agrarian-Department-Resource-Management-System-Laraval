@@ -79,6 +79,8 @@
 					<div class="menu-title">Dashboard</div>
 				</a>
 				<ul>
+				<li> <a href="/farmerDashboard"><i class="bx bx-right-arrow-alt"></i>Farmer Dashboard</a>
+					</li>
 					<li> <a href="{{ route('register_farmer') }}"><i class="bx bx-right-arrow-alt"></i>Add Farmer</a>
 					</li>
 					<li> <a href="{{ route('farmer.viewall') }}"><i class="bx bx-right-arrow-alt"></i>View Farmers</a>
