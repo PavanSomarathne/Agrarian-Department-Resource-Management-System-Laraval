@@ -21,7 +21,7 @@
 	<link href={{asset('assets/plugins/fullcalendar/css/main.min.css')}} rel="stylesheet">
 
 	<!-- CSS FILES End -->
-
+	
 	<!-- DataTables added by Pavan -->
 
 
@@ -94,6 +94,7 @@
 					<li> <a href="/subsidies"><i class="bx bx-right-arrow-alt"></i>Subsidies</a>
 					</li>
 					<li> <a href="/events"><i class="bx bx-right-arrow-alt"></i>Events</a>
+					<li> <a href="{{ route('profile.update') }}"><i class="bx bx-right-arrow-alt"></i>My Profile</a>
 					</li>
 					<li> <a href="/fertilizerFarmer"><i class="bx bx-right-arrow-alt"></i>Fertilizer Requests Farmer</a>
 					</li>
@@ -143,7 +144,7 @@
 							</li> -->
 
 						<li class="nav-item dropdown dropdown-large">
-							<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">7</span>
+							<a class="nav-link dropdown-toggle dropdown-toggle-nocaret position-relative" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <span class="alert-count">0</span>
 								<i class='bx bx-bell'></i>
 							</a>
 							<div class="dropdown-menu dropdown-menu-end">
@@ -156,16 +157,15 @@
 								<div class="header-notifications-list">
 									<a class="dropdown-item" href="javascript:;">
 										<div class="d-flex align-items-center">
-											<div class="notify bg-light-primary text-primary"><i class="bx bx-group"></i>
-											</div>
+											
 											<div class="flex-grow-1">
-												<h6 class="msg-name">New Customers<span class="msg-time float-end">14 Sec
-														ago</span></h6>
-												<p class="msg-info">5 new user registered</p>
+												<h6 class="msg-name"><span class="msg-time float-end">
+													</span></h6>
+												<p class="msg-info">Zero Notifications</p>
 											</div>
 										</div>
 									</a>
-									<a class="dropdown-item" href="javascript:;">
+									<!-- <a class="dropdown-item" href="javascript:;">
 										<div class="d-flex align-items-center">
 											<div class="notify bg-light-danger text-danger"><i class="bx bx-cart-alt"></i>
 											</div>
@@ -175,7 +175,7 @@
 												<p class="msg-info">You have recived new orders</p>
 											</div>
 										</div>
-									</a>
+									</a> -->
 
 								</div>
 								<a href="javascript:;">

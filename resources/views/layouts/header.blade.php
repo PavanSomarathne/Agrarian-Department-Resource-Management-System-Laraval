@@ -5,13 +5,9 @@
        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <i class="fas fa-bars"></i> </button>
        <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="index-2.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Home </a>
-                <ul class="dropdown-menu">
-                   <li><a href="index-2.html">Home One</a></li>
-                   <li><a href="home-two.html">Home Two</a></li>
-                   <li><a href="home-three.html">Home Three</a></li>
-                </ul>
+             <li class="nav-item ">
+                <a class="nav-link dropdown-toggle" href="/" role="button" > Home </a>
+                
              </li>
              <!-- <li class="nav-item"> <a class="nav-link" href="about.html">About</a> </li> -->
              <!-- <li class="nav-item dropdown">
@@ -98,14 +94,14 @@
              @else
              <div class="d-flex align-items-center">
              <li class="p-0 m-0">
-             <img width="40px" style="border-radius: 25px;" src="{{ Auth::user()->profile_image }}" class="user-img" alt="user avatar">
+             <img width="40px" style="border-radius: 50%;background-color: #ffffff;" src="{{ Auth::user()->profile_image }}" class="user-img" alt="user avatar">
              </li>
              <li class="login-reg"><a class="nav-link dropdown-toggle" href="contact.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <b>Hi ! {{ Auth::user()->name }}</b></a>
             <ul class="dropdown-menu">
                @if (Auth::user()->type != 'User')
                    <li><a href="dashboard">Dashboard &emsp;&emsp; </a> </li> 
                    @endif
-                   <li><a href="contact-two.html">Profile 	&emsp;&emsp;  </a> </li>
+                   <li><a href="{{ route('profile.update') }}">Profile 	&emsp;&emsp;  </a> </li>
                    <li><a href="" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Log Out</a> </li>
                 </ul>
