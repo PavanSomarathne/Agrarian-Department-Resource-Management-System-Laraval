@@ -13,7 +13,7 @@
                <div class="card">
                   <div class="card-body ">
                      <div class="d-flex flex-column align-items-center text-center">
-                        @if(!empty($item->image))
+                        @if(empty($item->profile_image))
                         <img id="pro_image" src="/storage/profile_images/profile.png" alt="Admin" class=" p-1 bg-light" style="object-fit: cover;border-radius: 50%;overflow: hidden;width: 200px;height:200px">
                         @else
                         <img id="pro_image" src="{{$item->profile_image}}" alt="Admin" class=" p-1 bg-light" style="object-fit: cover;border-radius: 50%;overflow: hidden;width: 200px;height:200px">
